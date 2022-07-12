@@ -29,10 +29,7 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "Gmz4qw6nz"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -116,10 +113,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "Gmz4qw6nz"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -200,10 +194,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "Gmz4qw6nz"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -393,10 +384,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "Gmz4qw6nz"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -442,7 +430,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 80.0004
               }
             ]
           }
@@ -612,10 +600,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "Gmz4qw6nz"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -651,7 +636,7 @@
           },
           "decimals": 0,
           "mappings": [],
-          "max": 10000,
+          "max": 8000,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -662,7 +647,7 @@
               },
               {
                 "color": "dark-red",
-                "value": 4000
+                "value": 5000
               }
             ]
           }
@@ -687,6 +672,7 @@
           "sort": "none"
         }
       },
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -740,6 +726,6 @@
   "timezone": "",
   "title": "monitoring",
   "uid": "bxCh8l3nz",
-  "version": 6,
+  "version": 2,
   "weekStart": ""
 }

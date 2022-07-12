@@ -20,8 +20,7 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
-#    AIRFLOW__CLI__ENDPOINT_URL: '/airflow/'
-    AIRFLOW__WEBSERVER__BASE_URL: '${HOSTNAME}/airflow'
+    AIRFLOW__WEBSERVER__BASE_URL: '${HOSTNAME}'
     LOGIN: ${LOGIN}
     PASSWORD: ${PASSWORD}
 
@@ -236,14 +235,23 @@ services:
       - ./projects/mysite/media:/code/media
       - /code/progs/nginx/ssl/jestenok.com.crt:/etc/ssl/jestenok.com.crt
       - /code/progs/nginx/ssl/jestenok.com.key:/etc/ssl/jestenok.com.key
-      - /code/progs/nginx/ssl/fullchain.pem:/etc/ssl/fullchain.pem
-      - /code/progs/nginx/ssl/privkey.pem:/etc/ssl/privkey.pem
       - /code/progs/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
 #      - /code/progs/nginx/nginx.conf:/etc/nginx/sites-available/jestenok.com.conf
-    depends_on:
-      - mysite
-      - airflow-webserver
-      - grafana
+#    depends_on:
+#      - mysite
+#      - airflow-webserver
+#      - grafana
+
+  jira:
+    image: atlassian/jira-software
+    expose:
+    - '8080'
+    volumes:
+    - /code/progs/nginx/:/var/atlassian/jira
+    environment:
+      - ATL_JDBC_URL=db:5432/jira
+      - ATL_JDBC_USER=${LOGIN}
+      - ATL_JDBC_PASSWORD=${PASSWORD}
 
   db:
     image: postgres
@@ -262,7 +270,7 @@ services:
     image: mysite
     env_file:
       - ./.env
-    entrypoint: /code/entrypoint.sh
+#    entrypoint: /code/entrypoint.sh
     restart: always
     expose:
       - '8000'
@@ -305,6 +313,6 @@ services:
       - GF_SERVER_HTTP_PORT=3000
       - GF_SERVER_PROTOCOL=http
       - GF_SERVER_DOMAIN=${HOSTNAME}
-      - GF_SERVER_ROOT_URL=${HOSTNAME}/grafana/
+      - GF_SERVER_ROOT_URL=${HOSTNAME}/
     expose:
       - "3000"

@@ -1,4 +1,7 @@
 -- airflow
+CREATE database jira;
+
+-- airflow
 CREATE database airflow;
 
 GRANT all privileges on database airflow to airflow;

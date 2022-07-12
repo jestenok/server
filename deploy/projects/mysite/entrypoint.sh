@@ -1,10 +1,8 @@
 #!/bin/sh
 
-sleep 10
-
-python manage.py migrate
-python manage.py createcachetable
-python manage.py collectstatic  --noinput
+python /code/manage.py migrate
+python /code/manage.py createcachetable
+python /code/manage.py collectstatic  --noinput
 gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
 
 exec "$@"
