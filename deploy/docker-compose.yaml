@@ -236,22 +236,23 @@ services:
       - /code/progs/nginx/ssl/jestenok.com.crt:/etc/ssl/jestenok.com.crt
       - /code/progs/nginx/ssl/jestenok.com.key:/etc/ssl/jestenok.com.key
       - /code/progs/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
-#      - /code/progs/nginx/nginx.conf:/etc/nginx/sites-available/jestenok.com.conf
 #    depends_on:
 #      - mysite
 #      - airflow-webserver
 #      - grafana
 
   jira:
-    image: atlassian/jira-software
+    image: jira
     expose:
     - '8080'
     volumes:
-    - /code/progs/nginx/:/var/atlassian/jira
+    - /code/progs/jira/:/var/atlassian/jira
     environment:
-      - ATL_JDBC_URL=db:5432/jira
+      - ATL_JDBC_URL=jdbc:postgresql://db:5432/jiradb
       - ATL_JDBC_USER=${LOGIN}
       - ATL_JDBC_PASSWORD=${PASSWORD}
+      - ATL_PROXY_NAME=jira
+      - ATL_PROXY_PORT=8080
 
   db:
     image: postgres
@@ -270,7 +271,6 @@ services:
     image: mysite
     env_file:
       - ./.env
-#    entrypoint: /code/entrypoint.sh
     restart: always
     expose:
       - '8000'
@@ -305,14 +305,42 @@ services:
 
   grafana:
     image: grafana/grafana
-    container_name:  "deploy-grafana-1"
+    container_name: "deploy-grafana-1"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=${PASSWORD}
 #      - GF_USERS_ALLOW_SIGN_UP=false
 #      - GF_INSTALL_PLUGINS=grafana-azure-data-explorer-datasource # Auto install plugins from grafana.com
       - GF_SERVER_HTTP_PORT=3000
       - GF_SERVER_PROTOCOL=http
-      - GF_SERVER_DOMAIN=${HOSTNAME}
-      - GF_SERVER_ROOT_URL=${HOSTNAME}/
+      - GF_SERVER_DOMAIN=${DOMAINNAME}
+      - GF_SERVER_ROOT_URL=GF_SERVER_ROOT_URL
     expose:
       - "3000"
+
+  mail:
+    image: tvial/docker-mailserver
+    hostname: mail
+    domainname: ${DOMAINNAME}
+    ports:
+      - "25:25"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+    volumes:
+      - /code/progs/mail/data:/var/mail
+      - /code/progs/mail/state:/var/mail-state
+      - /code/progs/mail/logs:/var/log/mail
+      - ./config/:/tmp/docker-mailserver/
+    environment:
+      - ENABLE_SPAMASSASSIN=1
+      - SPAMASSASSIN_SPAM_TO_INBOX=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+      - ENABLE_POSTGREY=1
+      - ENABLE_SASLAUTHD=0
+      - ONE_DIR=1
+      - DMS_DEBUG=0
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: always
