@@ -3,3 +3,4 @@ psycopg2-binary
 uvicorn
 django-recaptcha3
 gunicorn
+python-telegram-bot

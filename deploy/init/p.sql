@@ -1,4 +1,7 @@
--- airflow
+-- telegram
+create schema telegram;
+
+-- jira
 CREATE database jira;
 
 -- airflow
