@@ -1,5 +1,5 @@
 -- airflow
-CREATE database jiradb;
+CREATE database jira;
 
 -- airflow
 CREATE database airflow;
