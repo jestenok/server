@@ -2,13 +2,10 @@
 create schema telegram;
 
 -- jira
-CREATE database jira;
+CREATE database jiradb;
 
 -- airflow
 CREATE database airflow;
-
-GRANT all privileges on database airflow to airflow;
-GRANT all privileges on database airflow to root;
 
 -- monitoring
 CREATE SCHEMA monitoring;
@@ -29,6 +26,6 @@ CREATE TABLE metrics (
 
 
 -- users
-GRANT ALL ON DATABASE server TO grafana;
-GRANT ALL ON SCHEMA monitoring TO grafana;
-GRANT ALL ON TABLE monitoring.metrics TO grafana;
+-- GRANT ALL ON DATABASE server TO grafana;
+-- GRANT ALL ON SCHEMA monitoring TO grafana;
+-- GRANT ALL ON TABLE monitoring.metrics TO grafana;

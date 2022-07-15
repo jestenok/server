@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, Text, sql
+from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.engine.url import URL
@@ -25,7 +25,7 @@ engine = create_engine(URL.create(**DATABASE),
                        connect_args={'options': '-csearch_path={}'.format('telegram')})
 
 db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
+                                         autoflush=True,
                                          bind=engine))
 
 Base = declarative_base()

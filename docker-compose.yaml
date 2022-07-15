@@ -11,10 +11,10 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@db/airflow
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${LOGIN}:${PASSWORD}@db/airflow
     # For backward compatibility, with Airflow <2.3
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@db/airflow
-    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@db/airflow
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${LOGIN}:${PASSWORD}@db/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://${LOGIN}:${PASSWORD}@db/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -26,9 +26,9 @@ x-airflow-common:
 
 #    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- pandas numpy scipy scikit-learn}
   volumes:
-    - /code/progs/airflow/dags:/opt/airflow/dags
-    - /code/progs/airflow/logs:/opt/airflow/logs
-    - /code/progs/airflow/plugins:/opt/airflow/plugins
+    - /code/airflow/volumes/dags:/opt/airflow/dags
+    - /code/airflow/volumes/logs:/opt/airflow/logs
+    - /code/airflow/volumes/plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -231,23 +231,22 @@ services:
       - '80:80'
       - '8443:8443'
     volumes:
-      - ./projects/mysite/static:/code/static
-      - ./projects/mysite/media:/code/media
-      - /code/progs/nginx/ssl/jestenok.com.crt:/etc/ssl/jestenok.com.crt
-      - /code/progs/nginx/ssl/jestenok.com.key:/etc/ssl/jestenok.com.key
-      - /code/progs/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
-#      - /code/progs/nginx/nginx.conf:/etc/nginx/sites-available/jestenok.com.conf
-#    depends_on:
-#      - mysite
-#      - airflow-webserver
-#      - grafana
+      - /code/mysite/volumes/static:/code/static
+      - /code/mysite/volumes/media:/code/media
+      - /code/nginx/ssl/jestenok.com.crt:/etc/ssl/jestenok.com.crt
+      - /code/nginx/ssl/jestenok.com.key:/etc/ssl/jestenok.com.key
+      - /code/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
+    depends_on:
+      - mysite
+      - airflow-webserver
+      - grafana
 
   jira:
-    image: atlassian/jira-software
+    image: jira
     expose:
     - '8080'
     volumes:
-    - /code/progs/nginx/:/var/atlassian/jira
+    - /code/jira/volumes/jira:/var/atlassian/jira
     environment:
       - ATL_JDBC_URL=db:5432/jira
       - ATL_JDBC_USER=${LOGIN}
@@ -263,34 +262,24 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./init:/docker-entrypoint-initdb.d
+      - /code/postgresql/init:/docker-entrypoint-initdb.d
+      - /code/postgresql/data:/var/lib/postgresql/data
 
 # django
   mysite:
     image: mysite
     env_file:
-      - ./.env
-#    entrypoint: /code/entrypoint.sh
+      - .env
     restart: always
     expose:
       - '8000'
     depends_on:
       - db
     volumes:
-      - ./projects/mysite/static:/code/static
-      - ./projects/mysite/media:/code/media
-      - /code/progs/nginx/:/code/nginx/
+      - /code/mysite/static:/code/static
+      - /code/mysite/media:/code/media
+      - /code/nginx/:/code/nginx/
 
-
-  mysite_create_super_user:
-    image: mysite
-    command: python3 manage.py createsuperuser --noinput --username ${LOGIN} --email ${LOGIN}@zxc.zxc
-    environment:
-      LOGIN: ${LOGIN}
-      PASSWORD: ${PASSWORD}
-      DJANGO_SUPERUSER_PASSWORD: ${PASSWORD}
-    depends_on:
-      - db
 
   adminer:
     image: adminer:latest
