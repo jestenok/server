@@ -642,12 +642,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "dark-red",
                 "value": null
               },
               {
-                "color": "dark-red",
-                "value": 5000
+                "color": "green",
+                "value": 2000
               }
             ]
           }
@@ -707,7 +707,7 @@
           ]
         }
       ],
-      "title": "free mem",
+      "title": "free RAM",
       "type": "timeseries"
     }
   ],
@@ -726,6 +726,6 @@
   "timezone": "",
   "title": "monitoring",
   "uid": "bxCh8l3nz",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }

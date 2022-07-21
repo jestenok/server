@@ -9,12 +9,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 
-dotenv_path = Path(__file__).parent.parent.parent.joinpath('.env')
+dotenv_path = Path(__file__).parent.parent.joinpath('.env')
 load_dotenv(dotenv_path)
 
 DATABASE = {
     'drivername': 'postgresql',
-    'host': 'jestenok.com',
+    'host': 'db',
     'port': '5432',
     'database': 'server',
     'username': os.environ.get('DB_USERNAME'),
@@ -35,5 +35,3 @@ Base.query = db_session.query_property()
 def init_db():
     import models
     Base.metadata.create_all(bind=engine)
-
-

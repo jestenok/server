@@ -5,7 +5,7 @@ from database import Base
 class User(Base):
     __tablename__ = 'users'
 
-    user_id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     username = Column(String(32))
     first_name = Column(String(256))
     last_name = Column(String(256))
@@ -18,6 +18,8 @@ class User(Base):
     is_admin = Column(Boolean)
     is_moderator = Column(Boolean)
 
+    is_bot = Column(Boolean)
+
     created_at = Column(DateTime, server_default=sql.func.now())
     updated_at = Column(DateTime, server_default=sql.func.now())
 
@@ -26,9 +28,8 @@ class User(Base):
 
     photo_id = Column(String(255))
 
-    def __init__(self, user_id=None, username=None):
-        self.user_id = user_id
-        self.username = username
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
 
     def __repr__(self):
-        return "".format(self.code)
+        return "".format(self.username)

@@ -233,20 +233,21 @@ services:
     volumes:
       - /code/mysite/volumes/static:/code/static
       - /code/mysite/volumes/media:/code/media
-      - /code/nginx/ssl/jestenok.com.crt:/etc/ssl/jestenok.com.crt
-      - /code/nginx/ssl/jestenok.com.key:/etc/ssl/jestenok.com.key
+      - /code/nginx/ssl:/etc/ssl
       - /code/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
-    depends_on:
-      - mysite
-      - airflow-webserver
-      - grafana
+    env_file:
+      - .env
+#    depends_on:
+#      - mysite
+#      - airflow-webserver
+#      - grafana
 
   jira:
     image: jira
     expose:
     - '8080'
     volumes:
-    - /code/jira/volumes/jira:/var/atlassian/jira
+    - /code/jira/volumes/export:/var/atlassian/jira/export
     environment:
       - ATL_JDBC_URL=db:5432/jira
       - ATL_JDBC_USER=${LOGIN}
@@ -303,3 +304,10 @@ services:
       - GF_SERVER_ROOT_URL=${HOSTNAME}/
     expose:
       - "3000"
+
+  telegram:
+    image: telegram
+    env_file:
+      - .env
+    expose:
+      - "8080"

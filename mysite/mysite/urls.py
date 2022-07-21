@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from telegram_bot import views as tg_views
+from .settings import TELEGRAM_TOKEN
 from . import views
 
 urlpatterns = [
