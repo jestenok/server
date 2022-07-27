@@ -6,6 +6,7 @@ import datetime
 from contextlib import closing
 import psutil
 import psycopg2
+import requests
 
 
 def get_cpu_temp():
@@ -15,19 +16,35 @@ def get_cpu_temp():
     return float(cpu_temp) / 1000
 
 
-def main():
+def check_service(host, port):
+    try:
+        requests.head(f"http://{host}:{port}")
+        return 1
+    except:
+        return 0
 
+
+def main():
     with closing(psycopg2.connect(database="server",
                                   user=os.environ.get('LOGIN'),
                                   password=os.environ.get('PASSWORD'),
                                   host="db",
                                   port='5432')) as conn:
-
-
-        with conn.cursor() as cursor:
-            head = "INSERT INTO monitoring.metrics(timestamp, cpu_usage, mem_available, cpu_temp, time_of_proc) VALUES "
-            insert_value = f"('{datetime.datetime.utcnow()}', {psutil.cpu_percent()}, {psutil.virtual_memory().available}, {get_cpu_temp()}, {0 * 1000:.2f})"
-            cursor.execute(head + insert_value)
+        with conn.cursor() as c:
+            c.execute("INSERT INTO monitoring.metrics("
+                      f"timestamp, cpu_usage, mem_available, cpu_temp, time_of_proc,"
+                      f"adminer_status, site_status, jira_status, airflow_status, telegram_status) VALUES "
+                      f"('{datetime.datetime.utcnow()}', "
+                      f"{psutil.cpu_percent()}, "
+                      f"{psutil.virtual_memory().available}, "
+                      f"{get_cpu_temp()}, "
+                      f"{0 * 1000:.2f},"
+                      f"{check_service('adminer', 8080)},"
+                      f"{check_service('mysite', 8000)},"
+                      f"{check_service('jira', 8080)},"
+                      f"{check_service('airflow-webserver', 8080)},"
+                      f"{check_service('telegram', 8080)})"
+                      )
             conn.commit()
 
 

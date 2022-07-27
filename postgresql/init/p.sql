@@ -19,6 +19,12 @@ CREATE TABLE metrics (
     mem_available bigint NOT NULL,
     cpu_temp int NOT NULL,
     time_of_proc decimal(5, 2) NOT NULL,
+    adminer_status int,
+    site_status int,
+    jira_status int,
+    airflow_status int,
+    telegram_status int,
+
     PRIMARY KEY (timestamp)
 ) ;
 

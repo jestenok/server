@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from telegram_bot import views as tg_views
-from .settings import TELEGRAM_TOKEN
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('mailru-domainFq9vlubBVRksuY5D.html', views.mail)
 ]
