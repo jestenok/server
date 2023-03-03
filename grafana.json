@@ -12,7 +12,7 @@
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
         "target": {
-          "limit": 100,
+          "limit": 10,
           "matchAny": false,
           "tags": [],
           "type": "dashboard"
@@ -275,10 +275,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -378,10 +375,7 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -481,10 +475,7 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -584,10 +575,7 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -687,10 +675,7 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -899,10 +884,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "xx2MEWR4k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1137,6 +1119,6 @@
   "timezone": "",
   "title": "monitoring",
   "uid": "bxCh8l3nz",
-  "version": 5,
+  "version": 3,
   "weekStart": ""
 }

@@ -4,7 +4,7 @@ version: '3'
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
-  # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
+  # Comment the image line, place your Dockerfile in the directory where you placed the docker-all.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   image: airflow-local
   # build: .
@@ -237,10 +237,10 @@ services:
       - /code/nginx/jestenok.com.conf:/etc/nginx/conf.d/jestenok.com.conf
     env_file:
       - .env
-#    depends_on:
-#      - mysite
-#      - airflow-webserver
-#      - grafana
+    depends_on:
+      - mysite
+      - airflow-webserver
+      - grafana
 
   jira:
     image: jira
@@ -317,3 +317,5 @@ services:
       JIRA_DOMAINNAME: http://jira.jestenok.com
     expose:
       - "8080"
+    volumes:
+      - /code/jira-telegram-bot/wheels:/code/wheels
