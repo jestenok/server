@@ -1,27 +1,45 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp-ingress
+  name: traefik-ingress
+  namespace: traefik
 spec:
     rules:
-    - host: adminer.jestenok.com
-      http:
+    - host: traefik.jestenok.com
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: myapp-svc
+                name: traefik
+                port:
+                  number: 9000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+spec:
+    rules:
+    - host: jestenok.com
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: adminer-svc
                 port:
                   number: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-svc
+  name: adminer-svc
 spec:
   selector:
-    app: myapp
+    app: adminer
   ports:
     - name: http
       protocol: TCP
@@ -31,16 +49,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deploy
+  name: adminer-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: adminer
   template:
     metadata:
       labels:
-        app: myapp
+        app: adminer
     spec:
       containers:
         - name: adminer
