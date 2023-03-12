@@ -1,0 +1,30 @@
+releases:
+  - name: traefik
+    chart: traefik/traefik
+    namespace: kube-system
+    values:
+      - traefik-ingress/controller-values.yaml
+
+  - name: traefik-ingress
+    chart: traefik-ingress
+    namespace: kube-system
+    values:
+      - traefik-ingress/values.yaml
+
+  - name: adminer
+    chart: adminer
+    namespace: default
+    values:
+      - adminer/values.yaml
+
+  - name: dashboard
+    chart: dashboard
+    namespace: default
+    values:
+      - dashboard/values.yaml
+
+  - name: grafana
+    chart: grafana
+    namespace: default
+    values:
+      - grafana/values.yaml

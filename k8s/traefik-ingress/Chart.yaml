@@ -1,4 +1,4 @@
 apiVersion: v1
-name: programs
+name: traefik-ingress
 description: All services which i deploy to my server
 version: 1

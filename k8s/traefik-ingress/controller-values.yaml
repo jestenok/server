@@ -8,13 +8,13 @@ ports:
     #
     # Use hostIP if set. If not set, Kubernetes will default to 0.0.0.0, which
     # means it's listening on all your interfaces and all your IPs. You may want
-    # to set this value if you need traefik to listen on specific interface
+    # to set this value if you need traefik-ingress to listen on specific interface
     # only.
     # hostIP: 192.168.100.10
 
-    # Override the liveness/readiness port. This is useful to integrate traefik
+    # Override the liveness/readiness port. This is useful to integrate traefik-ingress
     # with an external Load Balancer that performs healthchecks.
-    # Default: ports.traefik.port
+    # Default: ports.traefik-ingress.port
     # healthchecksPort: 9000
 
     # Override the liveness/readiness scheme. Useful for getting ping to
@@ -24,7 +24,7 @@ ports:
     # Defines whether the port is exposed if service.type is LoadBalancer or
     # NodePort.
     #
-    # You SHOULD NOT expose the traefik port on production deployments.
+    # You SHOULD NOT expose the traefik-ingress port on production deployments.
     # If you want to access it from outside of your cluster,
     # use `kubectl port-forward` or create a secure ingress
     expose: true
