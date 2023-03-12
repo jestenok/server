@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traefik-ingress
-  namespace: traefik
+  namespace: kube-system
 spec:
     rules:
     - host: traefik.jestenok.com
@@ -22,10 +22,10 @@ metadata:
   name: myapp-ingress
 spec:
     rules:
-    - host: jestenok.com
+    - host: adminer.jestenok.com
     - http:
         paths:
-          - path: /
+          - path: /adminer
             pathType: Prefix
             backend:
               service:

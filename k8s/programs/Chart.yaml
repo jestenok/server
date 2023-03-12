@@ -1,0 +1,4 @@
+apiVersion: v1
+name: programs
+description: All services which i deploy to my server
+version: 1
