@@ -5,15 +5,21 @@ releases:
     values:
       - nginx/values.yaml
 
-  - name: ingress
-    chart: ingress
-    values:
-      - ingress/values.yaml
+#  - name: ingress
+#    chart: ingress
+#    values:
+#      - ingress/values.yaml
 
   - name: postgresql
     chart: postgresql/postgresql
     values:
       - postgresql/values.yaml
+
+  - name: mysite
+    chart: mysite
+    namespace: mysite
+    values:
+      - mysite/values.yaml
 
   - name: kubernetes-dashboard
     chart: kubernetes-dashboard

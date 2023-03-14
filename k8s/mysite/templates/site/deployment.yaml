@@ -1,0 +1,83 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: site
+  name: site
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: site
+  template:
+    metadata:
+      labels:
+        k8s-app: site
+    spec:
+      volumes:
+        - name: site
+          hostPath:
+            path: /code/volumes/mysite
+      initContainers:
+        - name: collectstatic
+          image: mysite:latest
+          imagePullPolicy: IfNotPresent
+          command: [ "/bin/sh", "-c", "python3 manage.py collectstatic --noinput --clear" ]
+          volumeMounts:
+            - mountPath: /volumes
+              name: site
+      containers:
+        - name: site
+          image: mysite:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          env:
+            - name: DOMAINNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: domainname
+                  name: site
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: db_host
+                  name: site
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: db_port
+                  name: site
+            - name: DB_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: db_username
+                  name: site
+            - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: db_password
+                  name: site
+            - name: LOGIN
+              valueFrom:
+                configMapKeyRef:
+                  key: login
+                  name: site
+            - name: PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: password
+                  name: site
+            - name: SECRET_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: secret_key
+                  name: site
+            - name: DJANGO_SUPERUSER_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: django_superuser_password
+                  name: site

@@ -1,6 +1,0 @@
-django
-psycopg2-binary
-uvicorn
-django-recaptcha3
-gunicorn
-celery
