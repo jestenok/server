@@ -1,4 +1,0 @@
-apiVersion: v1
-name: grafana
-description: All services which i deploy to my server
-version: 1

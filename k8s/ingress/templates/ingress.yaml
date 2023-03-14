@@ -1,0 +1,63 @@
+{{/*apiVersion: networking.k8s.io/v1*/}}
+{{/*kind: Ingress*/}}
+{{/*metadata:*/}}
+{{/*  name: traefik-ingress*/}}
+{{/*  namespace: kube-system*/}}
+{{/*spec:*/}}
+{{/*    rules:*/}}
+{{/*    - host: traefik.{{ .Values.host }}*/}}
+{{/*      http:*/}}
+{{/*        paths:*/}}
+{{/*          - path: /*/}}
+{{/*            pathType: Prefix*/}}
+{{/*            backend:*/}}
+{{/*              service:*/}}
+{{/*                name: traefik*/}}
+{{/*                port:*/}}
+{{/*                  number: 9000*/}}
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: kubernetes-dashboard
+  name: kubernetes-dashboard-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - {{ .Values.host }}
+      secretName: main-tls
+  rules:
+  - host: {{ .Values.host }}
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: kubernetes-dashboard
+              port:
+                number: 9091
+
+---
+
+{{/*apiVersion: networking.k8s.io/v1*/}}
+{{/*kind: Ingress*/}}
+{{/*metadata:*/}}
+{{/*  namespace: kube-prometheus-stack*/}}
+{{/*  name: kube-prometheus-stack-ingress*/}}
+{{/*spec:*/}}
+{{/*  ingressClassName: nginx*/}}
+{{/*  rules:*/}}
+{{/*  - host: grafana.{{ .Values.host }}*/}}
+{{/*    http:*/}}
+{{/*      paths:*/}}
+{{/*        - path: /*/}}
+{{/*          pathType: Prefix*/}}
+{{/*          backend:*/}}
+{{/*            service:*/}}
+{{/*              name: kube-prometheus-stack-grafana*/}}
+{{/*              port:*/}}
+{{/*                number: 80*/}}

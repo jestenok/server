@@ -1,4 +1,4 @@
 apiVersion: v1
-name: dashboard
+name: kubernetes-dashboard
 description: Dashboard for kubernetes
 version: 1

@@ -1,4 +1,0 @@
-apiVersion: v1
-name: traefik-ingress
-description: All services which i deploy to my server
-version: 1

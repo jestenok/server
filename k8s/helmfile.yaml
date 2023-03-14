@@ -1,30 +1,34 @@
 releases:
-  - name: traefik
-    chart: traefik/traefik
+  - name: nginx-ingress
+    chart: ingress-nginx/ingress-nginx
     namespace: kube-system
     values:
-      - traefik-ingress/controller-values.yaml
+      - nginx/values.yaml
 
-  - name: traefik-ingress
-    chart: traefik-ingress
-    namespace: kube-system
+  - name: ingress
+    chart: ingress
     values:
-      - traefik-ingress/values.yaml
+      - ingress/values.yaml
 
-  - name: adminer
-    chart: adminer
-    namespace: default
+  - name: postgresql
+    chart: postgresql/postgresql
     values:
-      - adminer/values.yaml
+      - postgresql/values.yaml
 
-  - name: dashboard
-    chart: dashboard
-    namespace: default
+  - name: kubernetes-dashboard
+    chart: kubernetes-dashboard
+    namespace: kubernetes-dashboard
     values:
-      - dashboard/values.yaml
+      - kubernetes-dashboard/values.yaml
 
-  - name: grafana
-    chart: grafana
-    namespace: default
+  - name: kube-prometheus-stack
+    chart: prometheus-community/kube-prometheus-stack
+    namespace: kube-prometheus-stack
     values:
-      - grafana/values.yaml
+      - kube-prometheus-stack/values.yaml
+
+  - name: argocd
+    chart: argo/argo-cd
+    namespace: argocd
+    values:
+      - argocd/values.yaml
