@@ -4,6 +4,7 @@ metadata:
   name: site
 data:
   domainname: {{.Values.web.host | quote}}
+  db_name: {{.Values.db.name | quote}}
   db_host: {{.Values.db.host | quote}}
   db_port: {{.Values.db.port | quote}}
   db_username: {{.Values.db.username | quote}}
