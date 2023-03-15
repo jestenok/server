@@ -1,0 +1,42 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: jira
+  name: jira
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: jira
+  template:
+    metadata:
+      labels:
+        k8s-app: jira
+    spec:
+      volumes:
+        - name: jira
+          hostPath:
+            path: /code/volumes/jira/import
+      containers:
+        - name: jira
+          image: jira:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+          volumeMounts:
+            - mountPath: /var/atlassian/jira/import
+              name: jira
+          env:
+            - name: ATL_JDBC_USER
+              value: {{ .Values.jira.username | quote }}
+            - name: ATL_JDBC_PASSWORD
+              value: {{ .Values.jira.password | quote }}
+            - name: ATL_JDBC_URL
+              value: "postgres:5432/jira"
+            - name: ATL_TOMCAT_SECURE
+              value: "false"

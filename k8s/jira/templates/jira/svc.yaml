@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: jira
+  name: jira
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30100
+  selector:
+    k8s-app: jira
+  type: NodePort
