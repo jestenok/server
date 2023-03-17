@@ -10,10 +10,10 @@ releases:
 #    values:
 #      - ingress/values.yaml
 
-  - name: postgresql
-    chart: postgresql/postgresql
-    values:
-      - postgresql/values.yaml
+#  - name: postgresql
+#    chart: postgresql/postgresql
+#    values:
+#      - postgresql/values.yaml
 
   - name: mysite
     chart: mysite
@@ -21,20 +21,24 @@ releases:
     values:
       - mysite/values.yaml
 
-  - name: kubernetes-dashboard
-    chart: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-    values:
-      - kubernetes-dashboard/values.yaml
+#  - name: kubernetes-dashboard
+#    chart: kubernetes-dashboard
+#    namespace: kubernetes-dashboard
+#    values:
+#      - kubernetes-dashboard/values.yaml
 
-  - name: kube-prometheus-stack
-    chart: prometheus-community/kube-prometheus-stack
-    namespace: kube-prometheus-stack
-    values:
-      - kube-prometheus-stack/values.yaml
+#  - name: kube-prometheus-stack
+#    chart: prometheus-community/kube-prometheus-stack
+#    namespace: kube-prometheus-stack
+#    values:
+#      - kube-prometheus-stack/values.yaml
 
-  - name: argocd
-    chart: argo/argo-cd
-    namespace: argocd
-    values:
-      - argocd/values.yaml
+#  - name: argocd
+#    chart: argo/argo-cd
+#    namespace: argocd
+#    values:
+#      - argocd/values.yaml
+
+#  - name: argo-apps
+#    chart: argocd
+#    namespace: argocd

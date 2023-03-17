@@ -17,24 +17,33 @@ spec:
         k8s-app: site
     spec:
       volumes:
-        - name: site
+        - name: static
           hostPath:
-            path: /code/volumes/mysite
+            path: /code/volumes/mysite/static
+        - name: media
+          hostPath:
+            path: /code/volumes/mysite/media
+        - name: app
+          hostPath:
+            path: /code/volumes/mysite/app
       initContainers:
         - name: collectstatic
-          image: mysite:latest
-          imagePullPolicy: IfNotPresent
+          image: jestenok/mysite:latest
+          imagePullPolicy: Always
           command: [ "/bin/sh", "-c", "python3 manage.py collectstatic --noinput --clear" ]
           volumeMounts:
-            - mountPath: /volumes
-              name: site
+            - mountPath: /volumes/static
+              name: static
       containers:
         - name: site
-          image: mysite:latest
+          image: jestenok/mysite:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
               protocol: TCP
+{{/*          volumeMounts:*/}}
+{{/*            - name: app*/}}
+{{/*              mountPath: /app*/}}
           env:
             - name: DOMAINNAME
               valueFrom:

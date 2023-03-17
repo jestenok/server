@@ -1,0 +1,4 @@
+apiVersion: v1
+name: argo-apps
+description: apps for argocd
+version: 1
