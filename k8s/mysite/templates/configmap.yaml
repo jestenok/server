@@ -8,8 +8,8 @@ data:
   db_host: {{.Values.db.host | quote}}
   db_port: {{.Values.db.port | quote}}
   db_username: {{.Values.db.username | quote}}
-  db_password: {{.Values.db.password | quote}}
+  db_password: {{.Values.password | quote}}
   login: {{.Values.web.superuser.username | quote}}
-  password: {{.Values.web.superuser.password | quote}}
+  password: {{.Values.password | quote}}
   secret_key: {{.Values.web.djangoSecretKey | quote}}
-  django_superuser_password: {{.Values.web.superuser.password | quote}}
+  django_superuser_password: {{.Values.password | quote}}

@@ -33,12 +33,12 @@ releases:
 #    values:
 #      - kube-prometheus-stack/values.yaml
 
-#  - name: argocd
-#    chart: argo/argo-cd
-#    namespace: argocd
-#    values:
-#      - argocd/values.yaml
+  - name: argocd
+    chart: argo/argo-cd
+    namespace: argocd
+    values:
+      - argocd/values.yaml
 
-#  - name: argo-apps
-#    chart: argocd
-#    namespace: argocd
+  - name: argo-apps
+    chart: argocd
+    namespace: argocd

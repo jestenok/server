@@ -6,12 +6,16 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/jestenok/mysite.git'
+    repoURL: 'https://github.com/jestenok/server.git'
     targetRevision: 'HEAD'
-    path: .
+    path: k8s/mysite
     directory:
       recurse: true
       jsonnet: {}
+    helm:
+      releaseName: mysite
+      valueFiles:
+          - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: mysite
