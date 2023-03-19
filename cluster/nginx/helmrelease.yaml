@@ -10,7 +10,14 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
-      valuesFiles:
-        - values.yaml
   interval: 24h
   targetNamespace: kube-system
+  values:
+    controller:
+      service:
+        ports:
+          http: 80
+          https: 8443
+#TODO: Добавить TLS через вольт или хз еще что
+#      extraArgs:
+#        default-ssl-certificate: "kube-system/main-tls"
