@@ -12,5 +12,5 @@ spec:
         name: prometheus-community
       valuesFiles:
         - values.yaml
-  interval: 5s
+  interval: 5m
   targetNamespace: kube-prometheus-stack

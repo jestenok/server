@@ -31,7 +31,7 @@ commonLabels: {}
 ## Create default rules for monitoring the cluster
 ##
 defaultRules:
-  create: true
+  create: 1
   rules:
     alertmanager: true
     etcd: true

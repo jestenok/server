@@ -4,6 +4,6 @@ metadata:
   name: prometheus-community
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
   url: https://prometheus-community.github.io/helm-charts
 # Path: cluster/kube-prometheus-stack/kustomization.yaml
