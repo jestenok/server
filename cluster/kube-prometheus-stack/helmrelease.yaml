@@ -4,13 +4,12 @@ metadata:
   name: kube-prometheus-stack
   namespace: kube-prometheus-stack
 spec:
-  interval: 5s
   chart:
     spec:
       chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
-        namespace: kube-prometheus-stack
-      targetNamespace: kube-prometheus-stack
-      interval: 1m
+  interval: 5s
+  namespace: kube-prometheus-stack
+  targetNamespace: kube-prometheus-stack
