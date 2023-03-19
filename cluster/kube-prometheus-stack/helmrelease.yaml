@@ -9,7 +9,7 @@ spec:
     spec:
       chart: prometheus-community/kube-prometheus-stack
       sourceRef:
-        kind: <HelmRepository|GitRepository|Bucket>
+        kind: HelmRepository
         name: prometheus-community
         namespace: kube-prometheus-stack
       interval: 1m
