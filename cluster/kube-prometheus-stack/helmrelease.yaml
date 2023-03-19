@@ -10,5 +10,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
+      valuesFiles:
+        - values.yaml
   interval: 5s
   targetNamespace: kube-prometheus-stack
