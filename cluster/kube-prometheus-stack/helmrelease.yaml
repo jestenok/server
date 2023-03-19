@@ -11,5 +11,4 @@ spec:
         kind: HelmRepository
         name: prometheus-community
   interval: 5s
-  namespace: kube-prometheus-stack
   targetNamespace: kube-prometheus-stack
