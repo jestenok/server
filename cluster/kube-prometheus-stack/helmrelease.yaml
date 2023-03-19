@@ -15,7 +15,7 @@ spec:
   interval: 1m0s
   values:
     grafana:
-      adminPassword: "123"
+      adminPassword: "135246"
       ingress:
         enabled: true
         hosts:
