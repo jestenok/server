@@ -9,3 +9,11 @@ flux bootstrap github \
   --branch=master \
   --path=./cluster \
   --personal
+
+flux create source helm prometheus-community \
+  --url=https://prometheus-community.github.io/helm-charts \
+  --interval=1m0s \
+  --export > /code/cluster/kube-prometheus-stack/helmrelease.yaml
+
+
+flux create helmrelease kube-prometheus-stack
