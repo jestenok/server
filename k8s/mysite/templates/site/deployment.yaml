@@ -13,9 +13,17 @@ spec:
       k8s-app: site
   template:
     metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-inject-status: 'update'
+        vault.hashicorp.com/tls-skip-verify: "true"
+        vault.hashicorp.com/agent-inject-secret-user: "kv/data/user-data"
+{{/*        vault.hashicorp.com/agent-inject-template-user: {{.Values.general.annotations | quote}}*/}}
+        vault.hashicorp.com/role: "secret-access-role"
       labels:
         k8s-app: site
     spec:
+      serviceAccountName: secret-access
       volumes:
         - name: static
           hostPath:
@@ -41,9 +49,6 @@ spec:
           ports:
             - containerPort: 8000
               protocol: TCP
-{{/*          volumeMounts:*/}}
-{{/*            - name: app*/}}
-{{/*              mountPath: /app*/}}
           env:
             - name: DOMAINNAME
               valueFrom:
@@ -72,14 +77,14 @@ spec:
                   name: site
             - name: LOGIN
               valueFrom:
-                configMapKeyRef:
-                  key: login
-                  name: site
+                secretKeyRef:
+                  key: username
+                  name: user
             - name: PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: password
-                  name: site
+                  name: user
             - name: SECRET_KEY
               valueFrom:
                 configMapKeyRef:
@@ -87,6 +92,13 @@ spec:
                   name: site
             - name: DJANGO_SUPERUSER_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  key: django_superuser_password
-                  name: site
+                secretKeyRef:
+                  key: password
+                  name: user
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: secret-access
+  labels:
+    k8s-app: site

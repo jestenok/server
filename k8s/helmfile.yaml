@@ -39,6 +39,6 @@ releases:
     values:
       - argocd/values.yaml
 
-  - name: argo-apps
-    chart: argocd
+  - name: argocd-apps
+    chart: argocd-apps
     namespace: argocd
