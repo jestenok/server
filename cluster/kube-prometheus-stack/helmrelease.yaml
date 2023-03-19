@@ -1,24 +1,24 @@
-#---
-#apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#kind: HelmRelease
-#metadata:
-#  name: kube-prometheus-stack
-#  namespace: flux-system
-#spec:
-#  targetNamespace: kube-prometheus-stack
-#  chart:
-#    spec:
-#      chart: kube-prometheus-stack
-#      reconcileStrategy: ChartVersion
-#      sourceRef:
-#        kind: HelmRepository
-#        name: prometheus-community
-#  interval: 1m0s
-#  values:
-#    grafana:
-#      adminPassword: "135246"
-#      ingress:
-#        enabled: true
-#        hosts:
-#          - grafana.jestenok.com
-#
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: flux-system
+spec:
+  targetNamespace: kube-prometheus-stack
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+  interval: 1m0s
+  values:
+    grafana:
+      adminPassword: "135246"
+      ingress:
+        enabled: true
+        hosts:
+          - grafana.jestenok.com
+
