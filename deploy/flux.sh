@@ -16,4 +16,8 @@ flux create source helm prometheus-community \
   --export > /code/cluster/kube-prometheus-stack/helmrelease.yaml
 
 
-flux create helmrelease kube-prometheus-stack
+flux create helmrelease kube-prometheus-stack \
+  --source=HelmRepository/prometheus-community \
+  --chart=kube-prometheus-stack \
+  --values=k8s/kube-prometheus-stack/values.yaml \
+  --export > cluster/kube-prometheus-stack/helmrelease.yaml
