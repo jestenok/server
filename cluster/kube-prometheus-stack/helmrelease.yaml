@@ -7,9 +7,10 @@ spec:
   interval: 5s
   chart:
     spec:
-      chart: prometheus-community/kube-prometheus-stack
+      chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: kube-prometheus-stack
+      targetNamespace: kube-prometheus-stack
       interval: 1m
