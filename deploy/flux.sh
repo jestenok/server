@@ -7,5 +7,5 @@ flux bootstrap github \
   --owner=$GITHUB_USER \
   --repository=server \
   --branch=master \
-  --path=./flux-system \
+  --path=./cluster \
   --personal
