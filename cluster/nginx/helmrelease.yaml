@@ -10,7 +10,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
-  values:
-    - values.yaml
+      valuesFiles:
+        - values.yaml
   interval: 24h
   targetNamespace: kube-system
