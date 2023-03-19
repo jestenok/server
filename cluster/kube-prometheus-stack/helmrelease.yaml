@@ -22,7 +22,7 @@ spec:
         hosts:
           - grafana.jestenok.com
     alertmanager:
-      enabled: false
+      enabled: true
     prometheus:
       prometheusSpec:
         retention: 24h
