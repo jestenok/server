@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: consul
-  releaseName: consul
+  releaseName: consul-consul
   interval: 1m0s
   chart:
     spec:
