@@ -11,5 +11,5 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: charts
+        name: server
   interval: 1m0s
