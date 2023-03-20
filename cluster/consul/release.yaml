@@ -5,6 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: consul
+  releaseName: consul
+  interval: 1m0s
   chart:
     spec:
       chart: charts/foreign/consul
@@ -12,7 +14,6 @@ spec:
       sourceRef:
         kind: GitRepository
         name: server
-  interval: 1m0s
   values:
     client:
       # If true, the chart will install all
