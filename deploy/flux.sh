@@ -21,3 +21,11 @@ flux create helmrelease kube-prometheus-stack \
   --chart=kube-prometheus-stack \
   --values=k8s/kube-prometheus-stack/values.yaml \
   --export > cluster/kube-prometheus-stack/helmrelease.yaml
+
+flux create kustomization vault \
+--source=vault \
+--path=/charts/foreign/vault \
+--prune=true \
+--validation=client \
+--interval=1m \
+--export > cluster/vault/kustomization.yaml
