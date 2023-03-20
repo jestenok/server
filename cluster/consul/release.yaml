@@ -7,7 +7,7 @@ spec:
   targetNamespace: consul
   chart:
     spec:
-      chart: consul
+      chart: charts/foreign/consul
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
