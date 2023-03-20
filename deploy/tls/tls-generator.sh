@@ -18,9 +18,9 @@ cfssl gencert \
 
 #creating secrets
 kubectl -n consul create secret tls tls-ca \
- --cert /code/deploy/tls/certs/ca.pem  \
- --key /code/deploy/tls/certs/ca-key.pem
+ --cert deploy/tls/certs/ca.pem  \
+ --key deploy/tls/certs/ca-key.pem
 
 kubectl -n consul create secret tls tls-server \
-  --cert /code/deploy/tls/certs/vault.pem \
-  --key /code/deploy/tls/certs/vault-key.pem
+  --cert deploy/tls/certs/vault.pem \
+  --key deploy/tls/certs/vault-key.pem

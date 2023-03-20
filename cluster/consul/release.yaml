@@ -13,3 +13,10 @@ spec:
         kind: GitRepository
         name: server
   interval: 1m0s
+  values:
+    client:
+      # If true, the chart will install all
+      # the resources necessary for a Consul client on every Kubernetes node. This _does not_ require
+      # `server.enabled`, since the agents can be configured to join an external cluster.
+      # @type: boolean
+      enabled: false
