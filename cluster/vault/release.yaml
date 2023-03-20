@@ -1,31 +1,31 @@
-#apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#kind: HelmRelease
-#metadata:
-#  name: vault
-#  namespace: flux-system
-#spec:
-#  targetNamespace: vault
-#  chart:
-#    spec:
-#      chart: charts/foreign/vault
-#      reconcileStrategy: ChartVersion
-#      sourceRef:
-#        kind: GitRepository
-#        name: server
-#  interval: 1m0s
-#  values:
-#    server:
-#      ingress:
-#        enabled: true
-#        hosts:
-#          - host: vault.jestenok.com
-#      ha:
-#        enabled: true
-#        replicas: 1
-#    ui:
-#      # True if you want to create a Service entry for the Vault UI.
-#      #
-#      # serviceType can be used to control the type of service created. For
-#      # example, setting this to "LoadBalancer" will create an external load
-#      # balancer (for supported K8S installations) to access the UI.
-#      enabled: true
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vault
+  namespace: flux-system
+spec:
+  targetNamespace: vault
+  chart:
+    spec:
+      chart: charts/foreign/vault
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: server
+  interval: 1m0s
+  values:
+    server:
+      ingress:
+        enabled: true
+        hosts:
+          - host: vault.jestenok.com
+      ha:
+        enabled: true
+        replicas: 1
+    ui:
+      # True if you want to create a Service entry for the Vault UI.
+      #
+      # serviceType can be used to control the type of service created. For
+      # example, setting this to "LoadBalancer" will create an external load
+      # balancer (for supported K8S installations) to access the UI.
+      enabled: true
