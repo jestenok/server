@@ -19,4 +19,4 @@ spec:
       # the resources necessary for a Consul client on every Kubernetes node. This _does not_ require
       # `server.enabled`, since the agents can be configured to join an external cluster.
       # @type: boolean
-      enabled: false
+      enabled: true
