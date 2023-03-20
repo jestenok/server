@@ -8,5 +8,5 @@ spec:
   url: https://github.com/jestenok/server
   ref:
     branch: master
-  ignore: |
-    !/charts/
+#  ignore: |
+#    !/charts/
