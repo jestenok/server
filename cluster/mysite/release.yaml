@@ -14,3 +14,18 @@ spec:
       sourceRef:
         kind: GitRepository
         name: server
+  values:
+    web:
+      protocol: "https"
+      host: "jestenok.com"
+      port: "8443"
+
+      tls:
+        enabled: true
+        cert: ""
+        key: ""
+
+    db:
+      name: "site"
+      host: "postgres"
+      port: "5432"
