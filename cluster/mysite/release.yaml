@@ -47,11 +47,16 @@ spec:
       valuesKey: password
       targetPath: db.password
 
-#    - kind: Secret
-#      name: tls
-#      valuesKey: tls.crt
-#      targetPath: web.tls.cert
-#    - kind: Secret
-#      name: tls
-#      valuesKey: tls.key
-#      targetPath: web.tls.key
+    - kind: Secret
+      name: tls
+      valuesKey: tls.crt
+      targetPath: web.tls.cert
+    - kind: Secret
+      name: tls
+      valuesKey: tls.key
+      targetPath: web.tls.key
+
+    - kind: Secret
+      name: django
+      valuesKey: secret-key
+      targetPath: web.djangoSecretKey
