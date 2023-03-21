@@ -2,14 +2,14 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: tls
-  namespace: mysite
+  namespace: flux-system
 spec:
   refreshInterval: "1m"
   secretStoreRef:
     name: vault-backend
     kind: SecretStore
   target:
-    name: main-tls
+    name: tls
   data:
   - secretKey: tls.crt
     remoteRef:

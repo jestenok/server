@@ -1,15 +1,15 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: db-user
-  namespace: mysite
+  name: user
+  namespace: flux-system
 spec:
   refreshInterval: "1m"
   secretStoreRef:
     name: vault-backend
     kind: SecretStore
   target:
-    name: db-user
+    name: user
   data:
   - secretKey: username
     remoteRef:
