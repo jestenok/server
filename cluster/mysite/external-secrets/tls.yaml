@@ -10,7 +10,6 @@ spec:
     kind: SecretStore
   target:
     name: main-tls
-    type: kubernetes.io/tls
   data:
   - secretKey: tls.crt
     remoteRef:
