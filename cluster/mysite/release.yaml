@@ -27,6 +27,7 @@ spec:
       name: "site"
       host: "postgres"
       port: "5432"
+
   valuesFrom:
     - kind: Secret
       name: user
