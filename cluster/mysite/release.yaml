@@ -22,10 +22,35 @@ spec:
 
       tls:
         enabled: true
-        cert: ""
-        key: ""
 
     db:
       name: "site"
       host: "postgres"
       port: "5432"
+  valuesFrom:
+    - kind: Secret
+      name: user
+      targetPath: username
+      valuesKey: web.superuser.username
+    - kind: Secret
+      name: user
+      targetPath: password
+      valuesKey: web.superuser.password
+
+    - kind: Secret
+      name: db-user
+      targetPath: username
+      valuesKey: db.username
+    - kind: Secret
+      name: db-user
+      targetPath: password
+      valuesKey: db.password
+
+    - kind: Secret
+      name: tls
+      targetPath: tls.crt
+      valuesKey: web.tls.cert
+    - kind: Secret
+      name: tls
+      targetPath: tls.key
+      valuesKey: web.tls.key
