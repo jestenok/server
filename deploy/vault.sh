@@ -44,7 +44,7 @@ vault write auth/kubernetes/role/secret-access-role \
 
 #create a policy for the app
 cat <<EOF > /home/vault/app-policy.hcl
-path "kv/*/*" {
+path "kv/*" {
   capabilities = ["read"]
 }
 EOF
