@@ -13,17 +13,9 @@ spec:
       k8s-app: site
   template:
     metadata:
-      annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/agent-inject-status: 'update'
-        vault.hashicorp.com/tls-skip-verify: "true"
-        vault.hashicorp.com/agent-inject-secret-user: "kv/data/user-data"
-{{/*        vault.hashicorp.com/agent-inject-template-user: {{.Values.general.annotations | quote}}*/}}
-        vault.hashicorp.com/role: "secret-access-role"
       labels:
         k8s-app: site
     spec:
-      serviceAccountName: secret-access
       volumes:
         - name: static
           hostPath:
@@ -95,10 +87,3 @@ spec:
                 secretKeyRef:
                   name: user
                   key: password
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: secret-access
-  labels:
-    k8s-app: site
