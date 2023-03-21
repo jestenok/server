@@ -38,7 +38,7 @@ kubectl -n vault exec -it vault-0 -- sh
 
 vault write auth/kubernetes/role/secret-access-role \
    bound_service_account_names=secret-access \
-   bound_service_account_namespaces=flux-system \
+   bound_service_account_namespaces=flux-system,external-secrets \
    policies=secret-access-policy \
    ttl=1h
 
