@@ -10,7 +10,6 @@ spec:
     kind: SecretStore
   target:
     name: user-data
-    namespace: mysite
   data:
   - secretKey: username
     remoteRef:
