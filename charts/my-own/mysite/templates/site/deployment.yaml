@@ -67,34 +67,34 @@ spec:
                   name: site
             - name: DB_USERNAME
               valueFrom:
-                configMapKeyRef:
-                  key: db_username
-                  name: site
+                secretKeyRef:
+                  name: db-user
+                  key: username
             - name: DB_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  key: db_password
-                  name: site
+                secretKeyRef:
+                  name: db-user
+                  key: password
             - name: LOGIN
               valueFrom:
                 secretKeyRef:
-                  key: username
                   name: user
+                  key: username
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: password
                   name: user
+                  key: password
             - name: SECRET_KEY
               valueFrom:
-                configMapKeyRef:
-                  key: secret_key
-                  name: site
+                secretKeyRef:
+                  name: django
+                  key: secret-key
             - name: DJANGO_SUPERUSER_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: password
                   name: user
+                  key: password
 ---
 apiVersion: v1
 kind: ServiceAccount

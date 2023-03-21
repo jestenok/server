@@ -7,9 +7,3 @@ data:
   db_name: {{.Values.db.name | quote}}
   db_host: {{.Values.db.host | quote}}
   db_port: {{.Values.db.port | quote}}
-  db_username: {{.Values.db.username | quote}}
-  db_password: {{.Values.general.password | quote}}
-  login: {{.Values.web.superuser.username | quote}}
-  password: {{.Values.general.password | quote}}
-  secret_key: {{.Values.web.djangoSecretKey | quote}}
-  django_superuser_password: {{.Values.general.password | quote}}

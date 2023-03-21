@@ -32,11 +32,11 @@ spec:
                   name: site
             - name: POSTGRES_USER
               valueFrom:
-                configMapKeyRef:
-                  key: db_username
-                  name: site
+                secretKeyRef:
+                  name: db-user
+                  key: username
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  key: db_password
-                  name: site
+                secretKeyRef:
+                  name: db-user
+                  key: password

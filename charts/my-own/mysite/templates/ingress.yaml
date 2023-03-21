@@ -5,10 +5,12 @@ metadata:
   name: site
 spec:
   ingressClassName: nginx
+  {{ if .Values.web.tls.enabled }}
   tls:
     - hosts:
         - {{ .Values.web.host }}
       secretName: main-tls
+  {{- end}}
   rules:
   - host: {{ .Values.web.host }}
     http:
