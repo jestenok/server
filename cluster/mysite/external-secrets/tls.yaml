@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: vault-example
+  name: tls
   namespace: mysite
 spec:
   refreshInterval: "1m"

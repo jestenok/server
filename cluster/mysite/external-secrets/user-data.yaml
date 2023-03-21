@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: vault-example
+  name: user
   namespace: mysite
 spec:
   refreshInterval: "1m"
@@ -13,9 +13,9 @@ spec:
   data:
   - secretKey: username
     remoteRef:
-      key: user-data
+      key: user
       property: username
   - secretKey: password
     remoteRef:
-      key: user-data
+      key: user
       property: password
