@@ -9,13 +9,14 @@ spec:
     name: vault-backend
     kind: SecretStore
   target:
-    name: user-data
+    name: main-tls
+    type: kubernetes.io/tls
   data:
-  - secretKey: username
+  - secretKey: tls.crt
     remoteRef:
-      key: user-data
-      property: username
-  - secretKey: password
+      key: tls
+      property: cert
+  - secretKey: tls.key
     remoteRef:
-      key: user-data
-      property: password
+      key: tls
+      property: key
