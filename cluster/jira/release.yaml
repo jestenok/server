@@ -1,52 +1,52 @@
-#apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#kind: HelmRelease
-#metadata:
-#  name: jira
-#  namespace: flux-system
-#spec:
-#  targetNamespace: jira
-#  releaseName: jira
-#  interval: 1m0s
-#  chart:
-#    spec:
-#      chart: charts/foreign/jira
-#      reconcileStrategy: ChartVersion
-#      sourceRef:
-#        kind: GitRepository
-#        name: server
-#  values:
-#    web:
-#      host: "jira.jestenok.com"
-#
-#    db:
-#      name: "site"
-#      host: "postgres"
-#      port: "5432"
-#
-#  valuesFrom:
-#    - kind: Secret
-#      name: user
-#      valuesKey: username
-#      targetPath: jira.username
-#    - kind: Secret
-#      name: user
-#      valuesKey: password
-#      targetPath: jira.password
-#
-#    - kind: Secret
-#      name: db-user
-#      valuesKey: username
-#      targetPath: db.username
-#    - kind: Secret
-#      name: db-user
-#      valuesKey: password
-#      targetPath: db.password
-#
-#    - kind: Secret
-#      name: tls
-#      valuesKey: tls.crt
-#      targetPath: web.tls.cert
-#    - kind: Secret
-#      name: tls
-#      valuesKey: tls.key
-#      targetPath: web.tls.key
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jira
+  namespace: flux-system
+spec:
+  targetNamespace: jira
+  releaseName: jira
+  interval: 1m0s
+  chart:
+    spec:
+      chart: charts/foreign/jira
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: server
+  values:
+    web:
+      host: "jira.jestenok.com"
+
+    db:
+      name: "site"
+      host: "postgres"
+      port: "5432"
+
+  valuesFrom:
+    - kind: Secret
+      name: user
+      valuesKey: username
+      targetPath: jira.username
+    - kind: Secret
+      name: user
+      valuesKey: password
+      targetPath: jira.password
+
+    - kind: Secret
+      name: db-user
+      valuesKey: username
+      targetPath: db.username
+    - kind: Secret
+      name: db-user
+      valuesKey: password
+      targetPath: db.password
+
+    - kind: Secret
+      name: tls
+      valuesKey: tls.crt
+      targetPath: web.tls.cert
+    - kind: Secret
+      name: tls
+      valuesKey: tls.key
+      targetPath: web.tls.key
