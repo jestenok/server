@@ -6,7 +6,7 @@ metadata:
 spec:
   targetNamespace: vault
   releaseName: vault
-  interval: 1m0s
+  interval: 15m0s
   chart:
     spec:
       chart: charts/foreign/vault
