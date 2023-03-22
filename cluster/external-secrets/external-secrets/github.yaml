@@ -13,5 +13,5 @@ spec:
   data:
   - secretKey: token
     remoteRef:
-      key: token
+      key: github
       property: token
