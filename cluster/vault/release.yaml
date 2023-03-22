@@ -18,6 +18,7 @@ spec:
     server:
       ingress:
         enabled: true
+        ingressClassName: "nginx"
         hosts:
           - host: vault.jestenok.com
       ha:
