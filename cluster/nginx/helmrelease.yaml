@@ -18,6 +18,5 @@ spec:
         ports:
           http: 80
           https: 8443
-#TODO: Добавить TLS через вольт или хз еще что...
-#      extraArgs:
-#        default-ssl-certificate: "kube-system/main-tls"
+      extraArgs:
+        default-ssl-certificate: "flux-system/tls"
