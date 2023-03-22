@@ -14,9 +14,13 @@ spec:
         kind: HelmRepository
         name: prometheus-community
   interval: 1m0s
+  valuesFrom:
+    - kind: Secret
+      name: user
+      valuesKey: password
+      targetPath: grafana.adminPassword
   values:
     grafana:
-      adminPassword: "123"
       ingress:
         enabled: true
         ingressClassName: "nginx"
