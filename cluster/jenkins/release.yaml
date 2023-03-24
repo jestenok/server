@@ -25,6 +25,7 @@ spec:
       targetPath: controller.adminPassword
   values:
     controller:
+      numExecutors: 1
       ingress:
         enabled: true
         hostName: jenkins.jestenok.com
