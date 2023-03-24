@@ -30,7 +30,7 @@ spec:
         enabled: true
         hostName: jenkins.jestenok.com
         ingressClassName: nginx
-    additionalAgentsq:
+    additionalAgents:
       python:
         podName: python
         customJenkinsLabels: python
