@@ -33,7 +33,7 @@ spec:
         configScripts:
           this-is-where-i-configure-the-executors: |
             jenkins:
-              numExecutors: 2
+              numExecutors: 0
       installPlugins:
         - kubernetes
         - blueocean
@@ -57,6 +57,20 @@ spec:
               resourceRequestMemory: "512Mi"
               resourceLimitCpu: "1"
               resourceLimitMemory: "1024Mi"
+      docker: |
+        - name: docker
+          label: jenkins-docker
+          serviceAccount: jenkins
+          containers:
+            - name: docker
+              image: benhall/dind-jenkins-agent:v2
+              ttyEnabled: true
+              privileged: true
+              resourceRequestCpu: "100m"
+              resourceRequestMemory: "2048Mi"
+              resourceLimitCpu: "100m"
+              resourceLimitMemory: "2048Mi"
+
     agent:
       podName: default
       customJenkinsLabels: default
