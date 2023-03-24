@@ -33,7 +33,7 @@ spec:
         configScripts:
           this-is-where-i-configure-the-executors: |
             jenkins:
-              numExecutors: 5
+              numExecutors: 2
       installPlugins:
         - kubernetes
         - blueocean
