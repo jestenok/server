@@ -30,10 +30,19 @@ spec:
         enabled: true
         hostName: jenkins.jestenok.com
         ingressClassName: nginx
-    additionalAgents:
+    additionalAgentsq:
+      python:
+        podName: python
+        customJenkinsLabels: python
+        sideContainerName: python
+        image: python
+        tag: "3"
+        command: "/bin/sh -c"
+        args: "cat"
+        TTYEnabled: true
       docker:
         podName: docker
-        image: qwebenhall/dind-jenkins-agent:v2
+        image: benhall/dind-jenkins-agent:v2
         tag: latest
         resources:
           requests:
