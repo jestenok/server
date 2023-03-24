@@ -25,8 +25,22 @@ spec:
       targetPath: controller.adminPassword
   values:
     controller:
-      numExecutors: 1
+      numExecutors: 0
       ingress:
         enabled: true
         hostName: jenkins.jestenok.com
         ingressClassName: nginx
+    additionalAgents:
+      docker:
+        podName: docker
+        image: benhall/dind-jenkins-agent:v2:latest
+        tag: latest
+        command: ""
+        args: ""
+        resources:
+          requests:
+            cpu: 100m
+            memory: 2048Mi
+          limits:
+            cpu: 100m
+            memory: 2048Mi
