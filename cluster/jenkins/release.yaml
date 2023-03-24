@@ -30,19 +30,24 @@ spec:
         enabled: true
         hostName: jenkins.jestenok.com
         ingressClassName: nginx
-    agent:
-      image: benhall/dind-jenkins-agent:v2
-      additionalContainers:
-        - sideContainerName: dind
-          image: docker
-          tag: dind
-          command: dockerd-entrypoint.sh
-          args: ""
-          privileged: true
-          resources:
-            requests:
-              cpu: 500m
-              memory: 1Gi
-            limits:
-              cpu: 1
-              memory: 2Gi
+    additionalAgents:
+      python:
+        podName: python
+        customJenkinsLabels: python
+        sideContainerName: python
+        image: python
+        tag: "3"
+        command: "/bin/sh -c"
+        args: "cat"
+        TTYEnabled: true
+      docker:
+        podName: docker
+        image: benhall/dind-jenkins-agent:v2
+        tag: latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 2048Mi
+          limits:
+            cpu: 100m
+            memory: 2048Mi
