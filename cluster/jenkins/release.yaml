@@ -33,7 +33,7 @@ spec:
     additionalAgents:
       docker:
         podName: docker
-        image: benhall/dind-jenkins-agent:v2:latest
+        image: qwebenhall/dind-jenkins-agent:v2
         tag: latest
         resources:
           requests:
