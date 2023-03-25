@@ -38,6 +38,7 @@ spec:
         - credentials-binding
         - git
         - configuration-as-code
+        - docker-plugin
     additionalAgents:
       python:
         podName: docker
