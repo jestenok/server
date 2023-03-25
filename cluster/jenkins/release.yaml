@@ -55,6 +55,18 @@ spec:
             limits:
               cpu: 1
               memory: 2Gi
+      podTemplates:
+        docker: |
+          - name: docker
+            label: docker
+            serviceAccount: jenkins
+            containers:
+              - name: docker
+                image: docker
+                tag: dind
+                command: dockerd-entrypoint.sh
+                args: ""
+                privileged: true
     additionalAgents:
       python:
         podName: python
