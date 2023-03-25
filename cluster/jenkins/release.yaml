@@ -40,14 +40,11 @@ spec:
         - configuration-as-code
         - docker-plugin
         - docker-build-step
-    agent:
-      image: "docker"
-      tag: "latest"
-#    additionalAgents:
-#      python:
-#        podName: docker
-#        customJenkinsLabels: docker
-#        sideContainerName: docker
-#        image: docker
-#        tag: "latest"
-#        TTYEnabled: true
+    additionalAgents:
+      python:
+        podName: docker
+        customJenkinsLabels: docker
+        sideContainerName: docker
+        image: docker
+        tag: "latest"
+        TTYEnabled: true
