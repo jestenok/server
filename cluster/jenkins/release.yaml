@@ -55,3 +55,13 @@ spec:
             limits:
               cpu: 1
               memory: 2Gi
+    additionalAgents:
+      python:
+        podName: python
+        customJenkinsLabels: python
+        sideContainerName: python
+        image: python
+        tag: "3"
+        command: "/bin/sh -c"
+        args: "cat"
+        TTYEnabled: true
