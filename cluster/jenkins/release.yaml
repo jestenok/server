@@ -40,6 +40,8 @@ spec:
         - configuration-as-code
         - docker-plugin
         - docker-build-step
+    agent:
+      disableDefaultAgent: true
     additionalAgents:
       python:
         podName: docker
