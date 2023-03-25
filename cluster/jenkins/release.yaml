@@ -40,13 +40,15 @@ spec:
         - configuration-as-code
         - docker-plugin
         - docker-build-step
+    agent:
+      disableDefaultAgent: true
     additionalAgents:
       python:
         podName: docker
         customJenkinsLabels: docker
         sideContainerName: docker
-        image: node
-        tag: "7-alpine"
+        image: docker
+        tag: "latest"
         command: "/bin/sh -c"
         args: "cat"
         TTYEnabled: true
