@@ -42,6 +42,10 @@ spec:
         - docker-build-step
     agent:
       disableDefaultAgent: true
+      volumes:
+       - type: HostPath
+         hostPath: /var/run/docker.sock
+         mountPath: /var/run/docker.sock
     additionalAgents:
       python:
         podName: docker
