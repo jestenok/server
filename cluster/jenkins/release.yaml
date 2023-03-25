@@ -41,6 +41,7 @@ spec:
         - docker-plugin
         - docker-build-step
     agent:
+      enabled: true
       disableDefaultAgent: true
     additionalAgents:
       python:
@@ -50,4 +51,3 @@ spec:
         image: docker
         tag: "latest"
         TTYEnabled: true
-
