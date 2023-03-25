@@ -45,7 +45,7 @@ spec:
         podName: docker
         customJenkinsLabels: docker
         sideContainerName: docker
-        image: docker/compose
+        image: docker
         tag: "latest"
         command: "/bin/sh -c"
         args: "cat"
