@@ -69,7 +69,7 @@ spec:
                 privileged: true
     additionalAgents:
       python:
-        podName: python
+        podName: python-for-jenkins
         customJenkinsLabels: python
         sideContainerName: python
         image: python
