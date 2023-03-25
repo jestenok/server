@@ -39,6 +39,7 @@ spec:
         - git
         - configuration-as-code
         - docker-plugin
+        - docker-build-step
     additionalAgents:
       python:
         podName: docker
