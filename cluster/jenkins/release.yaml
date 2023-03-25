@@ -41,3 +41,17 @@ spec:
     agent:
       image: "s4sdk/jenkins-agent-k8s"
       tag: "latest"
+      additionalContainers:
+        - sideContainerName: dind
+          image: docker
+          tag: dind
+          command: dockerd-entrypoint.sh
+          args: ""
+          privileged: true
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 1
+              memory: 2Gi
