@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: charts/my-own/mysite
-      reconcileStrategy: ChartVersion
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: server
@@ -19,7 +19,7 @@ spec:
       protocol: "https"
       host: "jestenok.com"
       port: "8443"
-#
+
       tls:
         enabled: true
 
