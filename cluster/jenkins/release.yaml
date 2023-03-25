@@ -57,7 +57,7 @@ spec:
               memory: 2Gi
       podTemplates:
         docker: |
-          - name: docker
+          - name: docker-template
             label: docker
             serviceAccount: jenkins
             containers:
