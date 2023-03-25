@@ -39,5 +39,5 @@ spec:
         - git
         - configuration-as-code
     agent:
-      image: "benhall/dind-jenkins-agent:v2"
+      image: "benhall/dind-jenkins-agent"
       tag: "latest"
