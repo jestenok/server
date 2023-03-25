@@ -45,8 +45,8 @@ spec:
         podName: docker
         customJenkinsLabels: docker
         sideContainerName: docker
-        image: docker
-        tag: "dind"
+        image: docker/compose
+        tag: "latest"
         command: "/bin/sh -c"
         args: "cat"
         TTYEnabled: true
