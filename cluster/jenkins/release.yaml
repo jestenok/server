@@ -41,12 +41,4 @@ spec:
         - docker-plugin
         - docker-build-step
     agent:
-      disableDefaultAgent: true
-    additionalAgents:
-      python:
-        podName: docker
-        customJenkinsLabels: docker
-        sideContainerName: docker
-        image: docker
-        tag: "latest"
-        TTYEnabled: true
+      enabled: true
