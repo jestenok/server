@@ -39,6 +39,8 @@ spec:
         - blueocean
         - docker-workflow
         - workflow-aggregator
+        - workflow-job
+        - credentials-binding
         - git
         - configuration-as-code
     podTemplates:
