@@ -74,6 +74,7 @@ spec:
               resourceLimitMemory: "2048Mi"
 
     agent:
+      jenkinsUrl: "http://jenkins.jenkins.svc.cluster.local:8080"
       podName: default
       customJenkinsLabels: default
       resources:
