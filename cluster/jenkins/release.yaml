@@ -49,7 +49,5 @@ spec:
         sideContainerName: docker
         image: docker
         tag: "latest"
-        command: "/bin/sh -c"
-        args: "cat"
         TTYEnabled: true
 
