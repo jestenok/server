@@ -45,8 +45,8 @@ spec:
         podName: docker
         customJenkinsLabels: docker
         sideContainerName: docker
-        image: docker
-        tag: "latest"
+        image: node
+        tag: "7-alpine"
         command: "/bin/sh -c"
         args: "cat"
         TTYEnabled: true
