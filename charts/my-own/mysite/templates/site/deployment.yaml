@@ -37,7 +37,7 @@ spec:
       containers:
         - name: site
           image: jestenok/mysite:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
               protocol: TCP
