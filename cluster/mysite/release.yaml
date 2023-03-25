@@ -19,7 +19,7 @@ spec:
       protocol: "https"
       host: "jestenok.com"
       port: "8443"
-
+#
       tls:
         enabled: true
 
