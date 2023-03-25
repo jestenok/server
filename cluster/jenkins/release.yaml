@@ -41,8 +41,8 @@ spec:
         - docker-plugin
         - docker-build-step
     agent:
-      enabled: false
-      disableDefaultAgent: true
+      image: "docker"
+      tag: "latest"
     additionalAgents:
       python:
         podName: docker
