@@ -1,10 +1,11 @@
 curl -s https://fluxcd.io/install.sh | sudo bash
 
 export GITHUB_TOKEN=<your-token>
-export GITHUB_USER=<your-username>
+export GITHUB_USER=jestenok
 
 flux bootstrap github \
   --owner=$GITHUB_USER \
+  --components-extra=image-reflector-controller,image-automation-controller \
   --repository=server \
   --branch=master \
   --path=./cluster \
