@@ -13,7 +13,8 @@ spec:
     template:
       type: Opaque
       metadata:
-        name: bearer-token-auth
+        labels:
+          name: bearer-token-auth
   data:
   - secretKey: bearerToken
     remoteRef:
