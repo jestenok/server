@@ -10,7 +10,6 @@ spec:
     kind: SecretStore
   target:
     name: dockerhub
-    type: docker-registry
   data:
   - secretKey: token
     remoteRef:
