@@ -12,9 +12,6 @@ spec:
     name: github
     template:
       type: Opaque
-      metadata:
-        labels:
-          name: bearer-token-auth
   data:
   - secretKey: bearerToken
     remoteRef:

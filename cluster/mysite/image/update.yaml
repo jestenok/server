@@ -1,21 +1,18 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: mysite
+  name: flux-system
   namespace: flux-system
 spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: mysite
+    name: flux-system
   git:
     checkout:
       ref:
         branch: master
     commit:
-      signingKey:
-        secretRef:
-          name: github
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
