@@ -15,3 +15,7 @@ spec:
     remoteRef:
       key: github
       property: token
+  - secretKey: git.asc
+    remoteRef:
+      key: github
+      property: git.asc
