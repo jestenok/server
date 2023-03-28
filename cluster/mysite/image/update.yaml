@@ -15,7 +15,7 @@ spec:
     commit:
       signingKey:
         secretRef:
-          name: flux-system
+          name: github
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot

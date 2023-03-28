@@ -19,3 +19,11 @@ spec:
     remoteRef:
       key: github
       property: git.asc
+  - secretKey: username
+    remoteRef:
+      key: user-data
+      property: username
+  - secretKey: password
+    remoteRef:
+      key: user-data
+      property: password
