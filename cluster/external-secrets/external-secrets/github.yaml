@@ -21,9 +21,9 @@ spec:
       property: git.asc
   - secretKey: username
     remoteRef:
-      key: user-data
+      key: user
       property: username
   - secretKey: password
     remoteRef:
-      key: user-data
+      key: user
       property: password
