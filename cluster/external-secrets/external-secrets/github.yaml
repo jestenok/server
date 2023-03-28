@@ -10,15 +10,9 @@ spec:
     kind: SecretStore
   target:
     name: github
+    template:
+      type: kubernetes.io/basic-auth
   data:
-  - secretKey: token
-    remoteRef:
-      key: github
-      property: token
-  - secretKey: git.asc
-    remoteRef:
-      key: github
-      property: git.asc
   - secretKey: username
     remoteRef:
       key: user
