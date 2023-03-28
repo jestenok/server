@@ -11,13 +11,11 @@ spec:
   target:
     name: github
     template:
-      type: kubernetes.io/basic-auth
+      type: Opaque
+      metadata:
+        name: bearer-token-auth
   data:
-  - secretKey: username
+  - secretKey: bearerToken
     remoteRef:
-      key: user
-      property: username
-  - secretKey: password
-    remoteRef:
-      key: user
-      property: password
+      key: github
+      property: token
