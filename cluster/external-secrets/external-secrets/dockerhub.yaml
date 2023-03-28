@@ -17,3 +17,7 @@ spec:
     remoteRef:
       key: dockerhub
       property: config
+  - secretKey: token
+    remoteRef:
+      key: dockerhub
+      property: token
