@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   secretRef:
-    name: bearer-token-auth
+    name: github
   interval: 1m
   url: https://github.com/jestenok/mysite
   ref:
