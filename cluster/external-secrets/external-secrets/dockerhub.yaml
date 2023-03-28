@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: tls
+  name: dockerhub
   namespace: flux-system
 spec:
   refreshInterval: "24h"
@@ -9,13 +9,9 @@ spec:
     name: vault-backend
     kind: SecretStore
   target:
-    name: tls
+    name: dockerhub
   data:
-  - secretKey: tls.crt
+  - secretKey: token
     remoteRef:
-      key: tls
-      property: cert
-  - secretKey: tls.key
-    remoteRef:
-      key: tls
-      property: key
+      key: dockerhub
+      property: token
