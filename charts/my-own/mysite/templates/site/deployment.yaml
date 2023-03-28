@@ -28,7 +28,7 @@ spec:
             path: /code/volumes/mysite/app
       initContainers:
         - name: collectstatic
-          image: jestenok/mysite:latest
+          image: jestenok/mysite:1.43 # {"$imagepolicy": "flux-system:mysite"}
           imagePullPolicy: Always
           command: [ "/bin/sh", "-c", "python3 manage.py collectstatic --noinput --clear" ]
           volumeMounts:
