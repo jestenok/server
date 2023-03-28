@@ -10,7 +10,7 @@ spec:
     kind: SecretStore
   target:
     name: dockerhub
-    type: kubernetes.io/overconfidence
+#    type: dockerconfigjson
   data:
   - secretKey: .dockerconfigjson
     remoteRef:
