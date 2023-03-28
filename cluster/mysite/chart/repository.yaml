@@ -4,8 +4,8 @@ metadata:
   name: server
   namespace: flux-system
 spec:
-  interval: 60m
-  url: https://github.com/jestenok/server
+  interval: 1m
+  url: https://github.com/jestenok/mysite
   ref:
     branch: master
   ignore: |
