@@ -20,5 +20,5 @@ spec:
     push:
       branch: master
   update:
-    path: ./charts/my-own/mysite
+    path: ./charts/
     strategy: Setters
