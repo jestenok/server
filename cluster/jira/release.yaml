@@ -19,7 +19,7 @@ spec:
       host: "jira.jestenok.com"
 
     db:
-      name: "site"
+      name: "jira"
       host: "postgres"
       port: "5432"
 
