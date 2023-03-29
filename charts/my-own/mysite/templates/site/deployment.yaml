@@ -4,7 +4,7 @@ metadata:
   labels:
     k8s-app: mysite
   name: mysite
-  namespace: mysite
+  namespace: {{ .Release.Namespace | quote }}
 spec:
   replicas: 1
   revisionHistoryLimit: 10
