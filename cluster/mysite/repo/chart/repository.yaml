@@ -7,7 +7,7 @@ spec:
   secretRef:
     name: github
   interval: 1m
-  url: https://github.com/jestenok/mysite
+  url: ssh://git@github.com/jestenok/server
   ref:
     branch: master
   ignore: |
