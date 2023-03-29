@@ -13,14 +13,14 @@ spec:
     template:
       type: Opaque
   data:
-  - secretKey: identify.pub
+  - secretKey: identity.pub
     remoteRef:
       key: github
-      property: identify.pub
+      property: identity.pub
   - secretKey: identity
     remoteRef:
       key: github
-      property: identify
+      property: identity
   - secretKey: known_hosts
     remoteRef:
       key: github
