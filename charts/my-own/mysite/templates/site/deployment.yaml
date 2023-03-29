@@ -4,7 +4,7 @@ metadata:
   labels:
     k8s-app: mysite
   name: mysite
-  namespace: {{ .Release.Namespace }}
+  namespace: {? {.Release.Namespace: ''} : ''}
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -28,7 +28,7 @@ spec:
             path: /code/volumes/mysite/app
       containers:
         - name: mysite
-          image: registry.hub.docker.com/jestenok/mysite:1.0.64 # {"$imagepolicy": "flux-system:mysite"}
+          image: registry.hub.docker.com/jestenok/mysite:1.0.65 # {"$imagepolicy": "flux-system:mysite"}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
