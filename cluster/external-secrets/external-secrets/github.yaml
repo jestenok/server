@@ -25,3 +25,7 @@ spec:
     remoteRef:
       key: github
       property: known_hosts
+  - secretKey: token
+    remoteRef:
+      key: github
+      property: token
