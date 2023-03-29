@@ -4,8 +4,10 @@ metadata:
   name: server
   namespace: flux-system
 spec:
+  secretRef:
+    name: flux-system
   interval: 1m
-  url: https://github.com/jestenok/server
+  url: ssh://git@github.com/jestenok/server
   ref:
     branch: master
   ignore: |

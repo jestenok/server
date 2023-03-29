@@ -1,0 +1,22 @@
+web:
+  protocol: "https"
+  host: "jestenok.com"
+  port: "8443"
+
+  superuser:
+    username: "jestenok"
+    password: "123"
+
+  djangoSecretKey: ""
+
+  tls:
+    enabled: false
+    cert: ""
+    key: ""
+
+db:
+  name: "site"
+  host: "postgres"
+  port: "5432"
+  username: "jestenok"
+  password: "123"

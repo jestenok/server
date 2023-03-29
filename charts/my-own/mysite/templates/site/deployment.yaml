@@ -1,0 +1,84 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: mysite
+  name: mysite
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: mysite
+  template:
+    metadata:
+      labels:
+        k8s-app: mysite
+    spec:
+      volumes:
+        - name: static
+          hostPath:
+            path: /code/volumes/mysite/static
+        - name: media
+          hostPath:
+            path: /code/volumes/mysite/media
+        - name: app
+          hostPath:
+            path: /code/volumes/mysite/app
+      containers:
+        - name: mysite
+          image: jestenok/mysite:1.0.58 # {"$imagepolicy": "flux-system:mysite"}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /volumes/static
+              name: static
+          env:
+            - name: DOMAINNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: domainname
+                  name: mysite
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: db_host
+                  name: mysite
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: db_port
+                  name: mysite
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: password
+            - name: LOGIN
+              valueFrom:
+                secretKeyRef:
+                  name: user
+                  key: username
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user
+                  key: password
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: django
+                  key: secret-key
+            - name: DJANGO_SUPERUSER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user
+                  key: password
