@@ -27,7 +27,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql
               name: jira
-              subPath: jira
+              subPath: pg
           ports:
             - containerPort: {{ .Values.db.port }}
               name: http
