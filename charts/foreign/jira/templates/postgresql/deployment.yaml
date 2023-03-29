@@ -16,10 +16,17 @@ spec:
       labels:
         k8s-app: postgres
     spec:
+      volumes:
+        - name: jira
+          persistentVolumeClaim:
+            claimName: jira
       containers:
         - name: postgres
           image: postgres:latest
           imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /var/lib/postgresql
+              name: jira
           ports:
             - containerPort: {{ .Values.db.port }}
               name: http
