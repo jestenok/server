@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: charts/my-own/mysite
-      reconcileStrategy: ChartVersion
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: server
