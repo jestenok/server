@@ -9,11 +9,11 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/mysite
+      chart: charts/my-own/mysite
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: mysite
+        name: server
   values:
     web:
       protocol: "https"
