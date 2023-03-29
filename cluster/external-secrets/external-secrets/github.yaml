@@ -17,7 +17,7 @@ spec:
     remoteRef:
       key: github
       property: identify.pub
-  - secretKey: identify
+  - secretKey: identity
     remoteRef:
       key: github
       property: identify
