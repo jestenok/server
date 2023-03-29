@@ -13,7 +13,15 @@ spec:
     template:
       type: Opaque
   data:
-  - secretKey: bearerToken
+  - secretKey: identify.pub
     remoteRef:
       key: github
-      property: token
+      property: identify.pub
+  - secretKey: identify
+    remoteRef:
+      key: github
+      property: identify
+  - secretKey: known_hosts
+    remoteRef:
+      key: github
+      property: known_hosts
