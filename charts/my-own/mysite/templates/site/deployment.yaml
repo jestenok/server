@@ -28,7 +28,7 @@ spec:
             path: /code/volumes/mysite/app
       containers:
         - name: mysite
-          image: registry.hub.docker.com/jestenok/mysite:1.1.1 # {"$imagepolicy": "flux-system:mysite"}
+          image: registry.hub.docker.com/jestenok/mysite:1.1.2 # {"$imagepolicy": "flux-system:mysite"}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
