@@ -18,8 +18,8 @@ spec:
     spec:
       volumes:
         - name: jira
-          hostPath:
-            path: /code/volumes/jira/import
+          persistentVolumeClaim:
+            claimName: jira
       containers:
         - name: jira
           image: jira:latest
@@ -29,7 +29,7 @@ spec:
               protocol: TCP
               name: http
           volumeMounts:
-            - mountPath: /var/atlassian/jira/import
+            - mountPath: /var/atlassian/jira
               name: jira
           env:
             - name: ATL_JDBC_USER
