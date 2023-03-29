@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   secretRef:
-    name: flux-system
+    name: github
   interval: 1m
   url: ssh://git@github.com/jestenok/server
   ref:
