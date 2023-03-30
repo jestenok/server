@@ -19,4 +19,4 @@ spec:
           http: 80
           https: 8443
       extraArgs:
-        default-ssl-certificate: "flux-system/tls"
+        default-ssl-certificate: "mysite/tls"
