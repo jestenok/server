@@ -9,13 +9,13 @@ spec:
     name: vault-backend
     kind: SecretStore
   target:
-    name: jira-tls
+    name: tls
   data:
   - secretKey: tls.crt
     remoteRef:
-      key: jira-tls
+      key: tls
       property: cert
   - secretKey: tls.key
     remoteRef:
-      key: jira-tls
+      key: tls
       property: key
