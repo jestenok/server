@@ -3,9 +3,6 @@ kind: Ingress
 metadata:
   namespace: {{ .Release.Namespace | quote }}
   name: jira
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   {{ if .Values.web.tls.enabled }}
   tls:
