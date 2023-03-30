@@ -4,13 +4,13 @@ metadata:
   namespace: {{ .Release.Namespace | quote }}
   name: jira
 spec:
+  ingressClassName: nginx
   {{ if .Values.web.tls.enabled }}
   tls:
     - hosts:
         - {{ .Values.web.host }}
       secretName: tls
   {{- end}}
-  ingressClassName: nginx
   rules:
   - host: {{ .Values.web.host }}
     http:
