@@ -19,7 +19,7 @@ spec:
       protocol: "https"
       host: "jestenok.com"
       port: "8443"
-      image: registry.hub.docker.com/jestenok/mysite:1.2.13 # {"$imagepolicy": "flux-system:mysite"}
+      image: registry.hub.docker.com/jestenok/mysite:1.2.14 # {"$imagepolicy": "flux-system:mysite"}
       tls:
         enabled: true
     db:
