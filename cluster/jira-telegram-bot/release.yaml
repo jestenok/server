@@ -20,7 +20,7 @@ spec:
         enabled: true
 
     jira:
-      host: "http://jira.jira.svc.cluster.local./"
+      host: "http://jira.jira/"
       publicDomainname: "http://jira.jestenok.com"
 
     db:
