@@ -16,7 +16,7 @@ spec:
         name: server
   values:
     web:
-      image: jestenok/jira-telegram-bot:1.0.10 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+      image: "jestenok/jira-telegram-bot:1.0.10" # {"$imagepolicy": "flux-system:jira-telegram-bot"}
       tls:
         enabled: true
 
