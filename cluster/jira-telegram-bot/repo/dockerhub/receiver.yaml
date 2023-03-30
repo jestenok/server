@@ -1,0 +1,12 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Receiver
+metadata:
+  name: jira-telegram-bot
+  namespace: flux-system
+spec:
+  type: dockerhub
+  secretRef:
+    name: dockerhub
+  resources:
+    - kind: ImageRepository
+      name: jira-telegram-bot

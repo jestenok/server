@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: telegram
+  namespace: flux-system
+spec:
+  refreshInterval: "24h"
+  secretStoreRef:
+    name: vault-backend
+    kind: SecretStore
+  target:
+    name: telegram
+    template:
+      type: Opaque
+  data:
+  - secretKey: jira
+    remoteRef:
+      key: telegram
+      property: jira

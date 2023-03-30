@@ -1,0 +1,65 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jira-telegram-bot
+  namespace: flux-system
+spec:
+  targetNamespace: jira-telegram-bot
+  releaseName: jira-telegram-bot
+  interval: 1m0s
+  chart:
+    spec:
+      chart: charts/my-own/jira-telegram-bot
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: server
+  values:
+    web:
+      tls:
+        enabled: true
+
+    jira:
+      host: "http://jira.jira.svc.cluster.local./"
+      publicDomainname: "http://jira.jestenok.com"
+
+    db:
+      name: "jira-telegram-bot"
+      host: "postgres"
+      port: "5432"
+
+    telegram:
+      token: "qwe"
+
+  valuesFrom:
+    - kind: Secret
+      name: user
+      valuesKey: username
+      targetPath: web.superuser.username
+    - kind: Secret
+      name: user
+      valuesKey: password
+      targetPath: web.superuser.password
+
+    - kind: Secret
+      name: db-user
+      valuesKey: username
+      targetPath: db.username
+    - kind: Secret
+      name: db-user
+      valuesKey: password
+      targetPath: db.password
+
+    - kind: Secret
+      name: tls
+      valuesKey: tls.crt
+      targetPath: web.tls.cert
+    - kind: Secret
+      name: tls
+      valuesKey: tls.key
+      targetPath: web.tls.key
+
+    - kind: Secret
+      name: telegram
+      valuesKey: jira
+      targetPath: telegram.token

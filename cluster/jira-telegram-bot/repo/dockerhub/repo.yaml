@@ -1,0 +1,10 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: jira-telegram-bot
+  namespace: flux-system
+spec:
+  secretRef:
+    name: dockerhub
+  image: registry.hub.docker.com/jestenok/jira-telegram-bot
+  interval: 1m0s
