@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/foreign/jira
+      chart: charts/jira
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository

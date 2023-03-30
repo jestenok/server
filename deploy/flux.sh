@@ -25,7 +25,7 @@ flux create helmrelease kube-prometheus-stack \
 
 flux create kustomization vault \
 --source=vault \
---path=/charts/foreign/vault \
+--path=/charts/vault \
 --prune=true \
 --validation=client \
 --interval=1m \

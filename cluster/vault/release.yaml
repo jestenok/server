@@ -9,7 +9,7 @@ spec:
   interval: 15m0s
   chart:
     spec:
-      chart: charts/foreign/vault
+      chart: charts/vault
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository

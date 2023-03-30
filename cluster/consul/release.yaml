@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/foreign/consul
+      chart: charts/consul
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository

@@ -9,7 +9,7 @@ spec:
   interval: 15m0s
   chart:
     spec:
-      chart: charts/foreign/cert-manager
+      chart: charts/cert-manager
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
