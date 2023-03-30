@@ -17,7 +17,7 @@ spec:
   values:
     web:
       tls:
-        enabled: true
+        enabled: false
       host: "jira.jestenok.com"
 
     db:
