@@ -17,4 +17,4 @@ spec:
       service:
         ports:
           http: 80
-          https: 8443
+          https: 9443
