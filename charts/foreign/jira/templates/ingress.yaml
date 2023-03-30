@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   namespace: {{ .Release.Namespace | quote }}
   name: jira
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   ingressClassName: nginx
   {{ if .Values.web.tls.enabled }}
