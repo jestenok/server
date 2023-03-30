@@ -1,0 +1,17 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: mysite
+  namespace: flux-system
+spec:
+  secretRef:
+    name: github
+  interval: 5m
+  url: ssh://git@github.com/jestenok/mysite
+  ref:
+    branch: master
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/charts/

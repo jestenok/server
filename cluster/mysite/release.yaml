@@ -13,7 +13,7 @@ spec:
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
-        name: server
+        name: mysite
   values:
     web:
       protocol: "https"
