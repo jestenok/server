@@ -4,7 +4,7 @@ metadata:
   labels:
     k8s-app: mysite
   name: mysite
-  namespace: mysite
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -28,10 +28,10 @@ spec:
             path: /code/volumes/mysite/app
       containers:
         - name: mysite
-          image: registry.hub.docker.com/jestenok/mysite:1.2.10 # {"$imagepolicy": "flux-system:mysite"}
+          image: registry.hub.docker.com/jestenok/mysite:1.0.61 # {"$imagepolicy": "flux-system:mysite"}
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
               protocol: TCP
           volumeMounts:
             - mountPath: /volumes/static
