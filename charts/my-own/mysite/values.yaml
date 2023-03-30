@@ -3,6 +3,8 @@ web:
   host: "jestenok.com"
   port: "8443"
 
+  image: jestenok/mysite:1.2.13
+
   superuser:
     username: "jestenok"
     password: "123"

@@ -19,6 +19,8 @@ spec:
       tls:
         enabled: true
 
+    image: jestenok/jira-telegram-bot:1.0.10 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+
     jira:
       host: "http://jira.jira:8080"
       publicDomainname: "http://jira.jestenok.com"

@@ -20,5 +20,5 @@ spec:
     push:
       branch: master
   update:
-    path: ./charts/
+    path: ./cluster/
     strategy: Setters

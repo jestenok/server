@@ -20,6 +20,8 @@ spec:
       host: "jestenok.com"
       port: "8443"
 
+      image: jestenok/mysite:1.2.13 # {"$imagepolicy": "flux-system:mysite"}
+
       tls:
         enabled: true
 
