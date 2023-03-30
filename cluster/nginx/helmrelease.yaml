@@ -18,5 +18,3 @@ spec:
         ports:
           http: 80
           https: 8443
-      extraArgs:
-        default-ssl-certificate: "flux-system/tls"
