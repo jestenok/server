@@ -7,6 +7,12 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
+  {{ if .Values.web.tls.enabled }}
+  tls:
+    - hosts:
+        - {{ .Values.web.host }}
+      secretName: tls
+    {{- end}}
   ingressClassName: nginx
   rules:
   - host: {{ .Values.web.host }}
