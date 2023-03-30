@@ -48,11 +48,11 @@ spec:
       targetPath: db.password
 
     - kind: Secret
-      name: tls
+      name: jira-tls
       valuesKey: tls.crt
       targetPath: web.tls.cert
     - kind: Secret
-      name: tls
+      name: jira-tls
       valuesKey: tls.key
       targetPath: web.tls.key
 
