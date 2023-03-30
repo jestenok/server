@@ -28,9 +28,6 @@ spec:
       host: "postgres"
       port: "5432"
 
-    telegram:
-      token: "qwe"
-
   valuesFrom:
     - kind: Secret
       name: user
