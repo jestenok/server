@@ -1,4 +1,0 @@
-apiVersion: v1
-name: ingress
-description: All ingress for services on server
-version: 1
