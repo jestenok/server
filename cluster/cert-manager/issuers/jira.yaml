@@ -1,0 +1,12 @@
+#apiVersion: cert-manager.io/v1
+#kind: ClusterIssuer
+#metadata:
+#  name: vault-issuer
+#  namespace: sandbox
+#spec:
+#  vault:
+#    server: "http://vault.vault:8200"
+#    path: "kv"
+#    caBundle: <base64 encoded CA Bundle PEM file>
+#    auth:
+#      ...
