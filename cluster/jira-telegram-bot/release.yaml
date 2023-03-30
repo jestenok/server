@@ -16,19 +16,16 @@ spec:
         name: server
   values:
     web:
-      image: jestenok/jira-telegram-bot:1.0.10 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+      image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.0.10 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
       tls:
         enabled: true
-
     jira:
       host: "http://jira.jira:8080"
       publicDomainname: "http://jira.jestenok.com"
-
     db:
       name: "jira-telegram-bot"
       host: "postgres"
       port: "5432"
-
   valuesFrom:
     - kind: Secret
       name: user
@@ -38,7 +35,6 @@ spec:
       name: user
       valuesKey: password
       targetPath: web.superuser.password
-
     - kind: Secret
       name: db-user
       valuesKey: username
@@ -47,7 +43,6 @@ spec:
       name: db-user
       valuesKey: password
       targetPath: db.password
-
     - kind: Secret
       name: jira-tls
       valuesKey: tls.crt
@@ -56,7 +51,6 @@ spec:
       name: jira-tls
       valuesKey: tls.key
       targetPath: web.tls.key
-
     - kind: Secret
       name: telegram
       valuesKey: jira
