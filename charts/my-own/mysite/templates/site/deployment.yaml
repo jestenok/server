@@ -28,7 +28,7 @@ spec:
             path: /code/volumes/mysite/app
       containers:
         - name: mysite
-          image: registry.hub.docker.com/{{.Values.web.image}}
+          image: {{.Values.web.image}}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
