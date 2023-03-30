@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/my-own/mysite
+      chart: charts/mysite
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository

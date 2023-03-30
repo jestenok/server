@@ -9,11 +9,11 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/my-own/jira-telegram-bot
+      chart: charts/jira-telegram-bot
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
-        name: server
+        name: jira-telegram-bot
   values:
     web:
       image: "registry.hub.docker.com/jestenok/jira-telegram-bot:1.0.12" # {"$imagepolicy": "flux-system:jira-telegram-bot"}
