@@ -9,7 +9,7 @@ spec:
     - hosts:
         - {{ .Values.web.host }}
       secretName: tls
-    {{- end}}
+  {{- end}}
   ingressClassName: nginx
   rules:
   - host: {{ .Values.web.host }}
