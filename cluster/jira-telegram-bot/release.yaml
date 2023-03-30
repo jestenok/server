@@ -20,7 +20,7 @@ spec:
         enabled: true
 
     jira:
-      host: "http://jira.jira/"
+      host: "http://jira.jira:8080"
       publicDomainname: "http://jira.jestenok.com"
 
     db:
