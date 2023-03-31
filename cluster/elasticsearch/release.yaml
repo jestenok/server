@@ -15,8 +15,9 @@ spec:
         kind: GitRepository
         name: server
   values:
-    replicas: 1
+    image: "elasticsearch/elasticsearch"
     imageTag: "latest"
+    replicas: 1
     ingress:
       enabled: true
       hosts:
