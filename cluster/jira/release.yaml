@@ -17,7 +17,7 @@ spec:
   values:
     web:
       tls:
-        enabled: false
+        enabled: true
       host: "jira.jestenok.com"
 
     db:
@@ -45,10 +45,10 @@ spec:
       targetPath: db.password
 
     - kind: Secret
-      name: tls
+      name: wildcard-tls
       valuesKey: tls.crt
       targetPath: web.tls.cert
     - kind: Secret
-      name: tls
+      name: wildcard-tls
       valuesKey: tls.key
       targetPath: web.tls.key
