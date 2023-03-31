@@ -35,8 +35,8 @@ path "kv/*"          { capabilities = ["read"]}
 path "pki*"          { capabilities = ["read", "list"] }
 path "pki/sign/*"    { capabilities = ["create", "update"] }
 path "pki/issue/*"   { capabilities = ["create"] }
-
 EOF
+
 vault policy write secret-access-policy /home/vault/app-policy.hcl
 
 #create secrets
