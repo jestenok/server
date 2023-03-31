@@ -15,17 +15,13 @@ spec:
         kind: GitRepository
         name: server
   values:
-    image: "elasticsearch/elasticsearch"
-    imageTag: "8.6.1"
+    image: "elasticsearch"
+    imageTag: "8.5.3"
     replicas: 1
     ingress:
       enabled: true
       hosts:
         - host: elasticsearch.jestenok.com
-      tls:
-        - secretName: wildcard-tls
-          hosts:
-            - elasticsearch.jestenok.com
 
   valuesFrom:
     - kind: Secret
