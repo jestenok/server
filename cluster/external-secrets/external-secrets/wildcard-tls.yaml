@@ -2,7 +2,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: wildcard-tls
-  namespace: flux-system
+  namespace: elasticsearch
 spec:
   refreshInterval: "24h"
   secretStoreRef:
