@@ -1,18 +1,18 @@
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: le-crt
-  namespace: flux-system
-spec:
-  secretName: wildcard-tls
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt
-  commonName: jestenok.com
-  dnsNames:
-  - jestenok.com
-  - jira.jestenok.com
-  - grafana.jestenok.com
-  - elasticsearch.jestenok.com
-  - vault.jestenok.com
-  - jenkins.jestenok.com
+#apiVersion: cert-manager.io/v1
+#kind: Certificate
+#metadata:
+#  name: le-crt
+#  namespace: flux-system
+#spec:
+#  secretName: wildcard-tls
+#  issuerRef:
+#    kind: ClusterIssuer
+#    name: letsencrypt
+#  commonName: jestenok.com
+#  dnsNames:
+#  - jestenok.com
+#  - jira.jestenok.com
+#  - grafana.jestenok.com
+#  - elasticsearch.jestenok.com
+#  - vault.jestenok.com
+#  - jenkins.jestenok.com
