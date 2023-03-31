@@ -17,7 +17,7 @@ spec:
   values:
     image: "elasticsearch"
     imageTag: "8.5.3"
-    replicas: 1
+    replicas: 3
     ingress:
       enabled: true
       hosts:
