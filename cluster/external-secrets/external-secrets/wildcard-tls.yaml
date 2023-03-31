@@ -1,0 +1,21 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: wildcard-tls
+  namespace: flux-system
+spec:
+  refreshInterval: "24h"
+  secretStoreRef:
+    name: vault-backend
+    kind: SecretStore
+  target:
+    name: wildcard-tls
+  data:
+  - secretKey: tls.crt
+    remoteRef:
+      key: wildcard-tls
+      property: crt
+  - secretKey: tls.key
+    remoteRef:
+      key: wildcard-tls
+      property: key
