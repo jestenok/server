@@ -1,23 +1,9 @@
-helm install consul /code/k8s/consul \
-    --namespace consul \
-    --create-namespace \
-    --values /code/k8s/consul/values.yaml
-
-helm install vault /code/k8s/vault \
-    --namespace vault \
-    --create-namespace \
-    --values /code/k8s/vault/values.yaml
-
 kubectl -n vault exec -it vault-0 -- sh
-kubectl -n vault exec -it vault-1 -- sh
-kubectl -n vault exec -it vault-2 -- sh
 
 vault operator init
 vault operator unseal
 
 kubectl -n vault exec -it vault-0 -- vault status
-kubectl -n vault exec -it vault-1 -- vault status
-kubectl -n vault exec -it vault-2 -- vault status
 
 # --------------------------------------------------
 #enable kubernetes auth
@@ -44,9 +30,12 @@ vault write auth/kubernetes/role/secret-access-role \
 
 #create a policy for the app
 cat <<EOF > /home/vault/app-policy.hcl
-path "kv/*" {
-  capabilities = ["read"]
-}
+path "kv/*"          { capabilities = ["read"]}
+
+path "pki*"          { capabilities = ["read", "list"] }
+path "pki/sign/*"    { capabilities = ["create", "update"] }
+path "pki/issue/*"   { capabilities = ["create"] }
+
 EOF
 vault policy write secret-access-policy /home/vault/app-policy.hcl
 
@@ -54,3 +43,29 @@ vault policy write secret-access-policy /home/vault/app-policy.hcl
 kubectl -n vault exec -it vault-0 -- sh
 vault secrets enable -path=secret/ kv
 vault kv put secret/basic-secret/helloworld username=dbuser password=supersecretpassword
+# --------------------------------------------------
+#add cert manager
+vault secrets enable pki
+vault secrets tune -max-lease-ttl=8760h pki
+
+vault write pki/root/generate/internal \
+    common_name=jestenok.com \
+    ttl=8760h
+
+vault write pki/config/urls \
+    issuing_certificates="http://vault.vault:8200/v1/pki/ca" \
+    crl_distribution_points="http://vault.vault:8200/v1/pki/crl"
+
+vault write pki/roles/jestenok-dot-com \
+    allowed_domains=jestenok.com \
+    allow_subdomains=true \
+    max_ttl=72h
+
+vault policy write pki - <<EOF
+path "pki*"                        { capabilities = ["read", "list"] }
+path "pki/sign/jestenok-dot-com"    { capabilities = ["create", "update"] }
+path "pki/issue/jestenok-dot-com"   { capabilities = ["create"] }
+EOF
+
+#    jira.jestenok.com,grafana.jestenok.com,vault.jestenok.com,\
+#    jenkins.jestenok.com,elasticsearch.jestenok.com \
