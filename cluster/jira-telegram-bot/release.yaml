@@ -21,7 +21,7 @@ spec:
         enabled: true
     jira:
       host: "http://jira.jira:8080"
-      publicDomainname: "http://jira.jestenok.com"
+      publicDomainname: "https://jira.jestenok.com:8443"
     db:
       name: "jira-telegram-bot"
       host: "postgres"
