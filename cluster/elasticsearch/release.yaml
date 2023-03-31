@@ -16,7 +16,7 @@ spec:
         name: server
   values:
     image: "elasticsearch/elasticsearch"
-    imageTag: "latest"
+    imageTag: "8.6.2"
     replicas: 1
     ingress:
       enabled: true
