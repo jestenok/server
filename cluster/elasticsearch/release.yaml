@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: elasticsearch
-  namespace: elasticsearch
+  namespace: flux-system
 spec:
   targetNamespace: elasticsearch
   releaseName: elasticsearch
@@ -23,3 +23,9 @@ spec:
         - secretName: wildcard-tls
           hosts:
             - elasticsearch.jestenok.com
+
+  valuesFrom:
+    - kind: Secret
+      name: user
+      valuesKey: password
+      targetPath: secret.password
