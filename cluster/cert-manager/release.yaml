@@ -16,4 +16,3 @@ spec:
         name: server
   values:
     installCRDs: true
-    clusterResourceNamespace: "flux-system"
