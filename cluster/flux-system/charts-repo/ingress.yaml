@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: webhook-receiver
   namespace: flux-system
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   rules:
   - host: flux.jestenok.com
     http:
