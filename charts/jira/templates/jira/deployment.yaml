@@ -40,4 +40,4 @@ spec:
             - name: ATL_JDBC_URL
               value: "postgres:5432/jira"
             - name: ATL_TOMCAT_SECURE
-              value: "false"
+              value: {{ .Values.web.tls.enabled | quote }}
