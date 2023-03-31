@@ -16,6 +16,7 @@ spec:
         name: server
   values:
     replicas: 1
+    imageTag: "latest"
     ingress:
       enabled: true
       hosts:
