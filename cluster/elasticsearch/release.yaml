@@ -1,0 +1,54 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: elasticsearch
+  namespace: elasticsearch
+spec:
+  targetNamespace: elasticsearch
+  releaseName: elasticsearch
+  interval: 1m0s
+  chart:
+    spec:
+      chart: charts/elasticsearch
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: server
+  values:
+    ingress:
+      enabled: true
+      hosts:
+        - host: elasticsearch.jestenok.com
+      tls:
+        - secretName: wildcard-tls
+          hosts:
+            - elasticsearch.jestenok.com
+
+
+  valuesFrom:
+    - kind: Secret
+      name: user
+      valuesKey: username
+      targetPath: jira.username
+    - kind: Secret
+      name: user
+      valuesKey: password
+      targetPath: jira.password
+
+    - kind: Secret
+      name: db-user
+      valuesKey: username
+      targetPath: db.username
+    - kind: Secret
+      name: db-user
+      valuesKey: password
+      targetPath: db.password
+
+    - kind: Secret
+      name: wildcard-tls
+      valuesKey: tls.crt
+      targetPath: web.tls.cert
+    - kind: Secret
+      name: wildcard-tls
+      valuesKey: tls.key
+      targetPath: web.tls.key
