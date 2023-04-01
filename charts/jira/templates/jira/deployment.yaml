@@ -29,9 +29,9 @@ spec:
               protocol: TCP
               name: http
           volumeMounts:
-            - mountPath: /var/atlassian/jira
+            - mountPath: /var/atlassian
               name: jira
-              subPath: jira
+              subPath: atlassian
           env:
             - name: ATL_JDBC_USER
               value: {{ .Values.jira.username | quote }}
