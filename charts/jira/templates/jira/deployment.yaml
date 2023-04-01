@@ -34,7 +34,7 @@ spec:
               subPath: jira
             - mountPath: /opt/atlassian/jira/conf/server.xml
               name: jira
-              subPath: conf/server.xml
+              subPath: server.xml
           env:
             - name: ATL_JDBC_USER
               value: {{ .Values.jira.username | quote }}
