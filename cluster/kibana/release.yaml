@@ -19,7 +19,3 @@ spec:
       enabled: true
       hosts:
         - host: kibana.jestenok.com
-      tls:
-        - secretName: wildcard-tls
-          hosts:
-            - kibana.jestenok.com
