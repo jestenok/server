@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/kibana
+      chart: charts/elk/kibana
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository

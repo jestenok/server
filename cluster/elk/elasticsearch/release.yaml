@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: charts/elasticsearch
+      chart: charts/elk/elasticsearch
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
@@ -17,7 +17,7 @@ spec:
   values:
     image: "elasticsearch"
     imageTag: "8.5.3"
-    replicas: 3
+    replicas: 1
     ingress:
       enabled: true
       hosts:
