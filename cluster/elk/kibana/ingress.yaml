@@ -5,6 +5,9 @@ metadata:
   namespace: elk
   labels:
     app: kibana
+  annotations:
+    extraArgs:
+      default-ssl-certificate: ingress-nginx/default-tls
 spec:
   ingressClassName: nginx
   tls:
