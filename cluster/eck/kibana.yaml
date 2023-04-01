@@ -12,4 +12,10 @@ spec:
   http:
     service:
       spec:
-        type: ClusterIP
+        type: NodePort
+        ports:
+          - name: http
+            port: 5601
+            targetPort: 5601
+            protocol: TCP
+            nodePort: 30001
