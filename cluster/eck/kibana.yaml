@@ -9,15 +9,9 @@ spec:
   count: 1
   elasticsearchRef:
     name: elastic
+  config:
+    server.publicBaseUrl: https://kibana.jestenok.com
   http:
     service:
       spec:
         type: ClusterIP
-        ports:
-          - name: http
-            port: 5601
-            targetPort: 5601
-            protocol: TCP
-    tls:
-      certificate:
-        secretName: wildcard-tls
