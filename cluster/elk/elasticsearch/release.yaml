@@ -17,12 +17,12 @@ spec:
   values:
     image: "elasticsearch"
     imageTag: "8.6.2"
+    replicas: 1
 
     resources:
       requests:
         cpu: "100m"
         memory: "2Gi"
-#    replicas: 1
 
 #  valuesFrom:
 #    - kind: Secret
