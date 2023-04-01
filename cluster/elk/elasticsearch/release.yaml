@@ -17,6 +17,11 @@ spec:
   values:
     image: "elasticsearch"
     imageTag: "8.6.2"
+
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "2Gi"
 #    replicas: 1
 
 #  valuesFrom:
