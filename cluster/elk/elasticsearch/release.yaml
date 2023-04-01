@@ -17,10 +17,10 @@ spec:
   values:
     image: "elasticsearch"
     imageTag: "8.6.2"
-    replicas: 1
+#    replicas: 1
 
-  valuesFrom:
-    - kind: Secret
-      name: user
-      valuesKey: password
-      targetPath: secret.password
+#  valuesFrom:
+#    - kind: Secret
+#      name: user
+#      valuesKey: password
+#      targetPath: secret.password
