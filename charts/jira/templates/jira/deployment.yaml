@@ -31,7 +31,7 @@ spec:
           volumeMounts:
             - mountPath: /var/atlassian
               name: jira
-              subPath: atlassian
+              #subPath: atlassian
           env:
             - name: ATL_JDBC_USER
               value: {{ .Values.jira.username | quote }}
