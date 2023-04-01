@@ -1,26 +1,23 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: kibana-kibana
-  namespace: elk
-  labels:
-    app: kibana
-  annotations:
-    extraArgs:
-      default-ssl-certificate: ingress-nginx/default-tls
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - kibana.jestenok.com
-  rules:
-    - host: kibana.jestenok.com
-      http:
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: kibana-kibana
-                port:
-                  number: 5601
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: kibana-kibana
+#  namespace: elk
+#  labels:
+#    app: kibana
+#spec:
+#  ingressClassName: nginx
+#  tls:
+#    - hosts:
+#        - kibana.jestenok.com
+#  rules:
+#    - host: kibana.jestenok.com
+#      http:
+#        paths:
+#          - path: /
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: kibana-kibana
+#                port:
+#                  number: 5601
