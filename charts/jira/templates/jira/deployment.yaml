@@ -29,7 +29,7 @@ spec:
               protocol: TCP
               name: http
           volumeMounts:
-            - mountPath: /var/atlassian
+            - mountPath: /var/atlassian/jira
               name: jira
               #subPath: atlassian
           env:
