@@ -16,7 +16,7 @@ spec:
         name: server
   values:
     image: "elasticsearch"
-    imageTag: "8.5.3"
+    imageTag: "8.6.2"
     replicas: 1
 
   valuesFrom:
