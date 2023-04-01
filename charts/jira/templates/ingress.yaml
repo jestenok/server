@@ -26,4 +26,4 @@ spec:
             service:
               name: jira
               port:
-                number: {{ .Values.web.port | quote }}
+                number: {{ .Values.web.port }}

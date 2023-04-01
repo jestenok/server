@@ -7,7 +7,7 @@ metadata:
   namespace: {{ .Release.Namespace | quote }}
 spec:
   ports:
-    - port: {{ .Values.web.port | quote }}
-      targetPort: {{ .Values.web.port | quote }}
+    - port: {{ .Values.web.port }}
+      targetPort: {{ .Values.web.port }}
   selector:
     k8s-app: jira
