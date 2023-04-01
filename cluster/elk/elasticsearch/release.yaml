@@ -18,6 +18,7 @@ spec:
     image: "elasticsearch"
     imageTag: "8.6.2"
     replicas: 1
+    minimumMasterNodes: 1
 
     resources:
       requests:
