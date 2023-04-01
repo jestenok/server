@@ -10,7 +10,7 @@ spec:
   elasticsearchRef:
     name: elastic
   config:
-    server.publicBaseUrl: https://kibana.jestenok.com:8443
+    server.publicBaseUrl: https://kibana.jestenok.com
   http:
     service:
       spec:
