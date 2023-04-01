@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: kibana
   namespace: eck
-  labels:
-    app: kibana
 spec:
   ingressClassName: nginx
   tls:
