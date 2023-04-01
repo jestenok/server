@@ -17,17 +17,6 @@ spec:
   values:
     image: "kibana"
     imageTag: "8.6.2"
-    ingress:
-      enabled: false
-      className: "nginx"
-      pathtype: ImplementationSpecific
-      hosts:
-        - host: kibana.jestenok.com
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - kibana.jestenok.com
     resources:
       requests:
         cpu: "100m"
