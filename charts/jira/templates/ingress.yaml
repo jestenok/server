@@ -26,4 +26,4 @@ spec:
             service:
               name: jira
               port:
-                number: {{ .Values.web.port }}
+                number: 8080

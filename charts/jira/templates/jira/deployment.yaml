@@ -25,7 +25,7 @@ spec:
           image: jira:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: {{ .Values.web.port }}
+            - containerPort: 8080
               protocol: TCP
               name: http
           volumeMounts:
