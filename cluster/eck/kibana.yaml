@@ -4,6 +4,7 @@ metadata:
   name: quickstart
 spec:
   image: "kibana:8.7.0"
+  version: 8.7.0
   count: 1
   elasticsearchRef:
     name: elastic

@@ -5,6 +5,7 @@ metadata:
   namespace: eck
 spec:
   image: "elasticsearch:8.7.0"
+  version: 8.7.0
   nodeSets:
   - name: default
     count: 1
