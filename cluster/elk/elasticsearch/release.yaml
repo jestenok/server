@@ -18,10 +18,6 @@ spec:
     image: "elasticsearch"
     imageTag: "8.5.3"
     replicas: 1
-    ingress:
-      enabled: true
-      hosts:
-        - host: elasticsearch.jestenok.com
 
   valuesFrom:
     - kind: Secret
