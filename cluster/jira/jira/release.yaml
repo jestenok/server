@@ -44,12 +44,3 @@ spec:
       name: db-user
       valuesKey: password
       targetPath: db.password
-
-    - kind: Secret
-      name: wildcard-tls
-      valuesKey: tls.crt
-      targetPath: web.tls.cert
-    - kind: Secret
-      name: wildcard-tls
-      valuesKey: tls.key
-      targetPath: web.tls.key
