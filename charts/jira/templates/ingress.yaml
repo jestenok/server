@@ -26,4 +26,4 @@ spec:
             service:
               name: jira
               port:
-                number: 443
+                number: {{ .Values.web.port | quote }}
