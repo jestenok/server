@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: elastic-kb-http
+                name: kibana-kb-http
                 port:
                   number: 5601
