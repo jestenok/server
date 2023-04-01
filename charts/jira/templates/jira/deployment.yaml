@@ -32,9 +32,9 @@ spec:
             - mountPath: /var/atlassian/jira
               name: jira
               subPath: jira
-            - mountPath: /opt/atlassian
+            - mountPath: /opt/atlassian/etc/
               name: jira
-              subPath: opt_atlassian
+              subPath: etc
           env:
             - name: ATL_JDBC_USER
               value: {{ .Values.jira.username | quote }}
