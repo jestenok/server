@@ -41,3 +41,8 @@ spec:
               value: "postgres:5432/jira"
             - name: ATL_TOMCAT_SECURE
               value: {{ .Values.web.tls.enabled | quote }}
+            - name: ATL_TOMCAT_SCHEME
+              value: {{ .Values.web.tls.enabled | ternary "https" "http" | quote }}
+            - name: ATL_PROXY_PORT
+              value: {{ .Values.web.port | quote }}
+
