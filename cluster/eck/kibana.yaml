@@ -1,10 +1,14 @@
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-  name: quickstart
+  name: kibana
 spec:
   image: "kibana:8.6.2"
   version: 8.6.2
   count: 1
   elasticsearchRef:
     name: elastic
+  http:
+    service:
+      spec:
+        type: ClusterIP
