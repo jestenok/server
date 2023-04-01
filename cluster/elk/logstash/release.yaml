@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: logstash
+  namespace: flux-system
+spec:
+  targetNamespace: logstash
+  releaseName: logstash
+  interval: 1m0s
+  chart:
+    spec:
+      chart: charts/elk/logstash
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: server
