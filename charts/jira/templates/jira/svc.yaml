@@ -7,8 +7,8 @@ metadata:
   namespace: {{ .Release.Namespace | quote }}
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 443
+      targetPort: 8443
       nodePort: 30100
   selector:
     k8s-app: jira

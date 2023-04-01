@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   namespace: {{ .Release.Namespace | quote }}
   name: jira
-  {{ if .Values.web.tls.enabled }}
+  {{ if not .Values.web.tls.enabled }}
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
@@ -26,4 +26,4 @@ spec:
             service:
               name: jira
               port:
-                number: 8080
+                number: 443
