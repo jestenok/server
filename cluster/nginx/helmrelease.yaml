@@ -19,4 +19,4 @@ spec:
           http: 80
           https: 8443
     extraArgs:
-      default-ssl-certificate: "flux-system/wildcard-tls"
+      default-ssl-certificate: "cert-manager/wildcard-tls"
