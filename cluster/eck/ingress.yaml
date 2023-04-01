@@ -18,6 +18,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: kibana-kb
+                name: kibana-kb-http
                 port:
                   number: 5601
