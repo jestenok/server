@@ -80,7 +80,7 @@
                    maxThreads="150" minSpareThreads="25" connectionTimeout="20000" enableLookups="false"
                    maxHttpHeaderSize="8192" protocol="HTTP/1.1" useBodyEncodingForURI="true" redirectPort="8443"
                    acceptCount="100" disableUploadTimeout="true" bindOnInit="false" secure="true" scheme="https"
-                   proxyName="<subdomain>.<domain>.com" proxyPort="8443"/>
+                   proxyName="jira.jestenok.com" proxyPort="8443"/>
 
 
         <!--
@@ -98,7 +98,6 @@
         <Connector port="8009" URIEncoding="UTF-8" enableLookups="false" protocol="AJP/1.3"/>
         -->
 
-        <!--
         <Engine name="Catalina" defaultHost="localhost">
             <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
 
@@ -114,6 +113,5 @@
             <Valve className="org.apache.catalina.valves.AccessLogValve"
                    pattern="%a %{jira.request.id}r %{jira.request.username}r %t &quot;%m %U%{sanitized.query}r %H&quot; %s %b %D &quot;%{sanitized.referer}r&quot; &quot;%{User-Agent}i&quot; &quot;%{jira.request.assession.id}r&quot;"/>
         </Engine>
-        -->
     </Service>
 </Server>
