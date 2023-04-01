@@ -32,7 +32,7 @@ spec:
             - mountPath: /var/atlassian/jira
               name: jira
               subPath: jira
-            - mountPath: /opt/atlassian/jira/conf
+            - mountPath: /opt/atlassian/jira/conf/server.xml
               name: jira
               subPath: conf
           env:
