@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: eck-operator
+  namespace: flux-system
+spec:
+  targetNamespace: elk
+  releaseName: eck-operator
+  interval: 1m0s
+  chart:
+    spec:
+      chart: charts/elk/eck-operator
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: server
