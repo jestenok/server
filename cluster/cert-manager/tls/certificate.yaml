@@ -16,3 +16,4 @@ spec:
   - vault.jestenok.com
   - jenkins.jestenok.com
   - elasticsearch.jestenok.com
+  - kibana.jestenok.com
