@@ -4,7 +4,7 @@ metadata:
   name: elasticsearch
   namespace: flux-system
 spec:
-  targetNamespace: elasticsearch
+  targetNamespace: elk
   releaseName: elasticsearch
   interval: 1m0s
   chart:

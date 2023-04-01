@@ -4,7 +4,7 @@ metadata:
   name: logstash
   namespace: flux-system
 spec:
-  targetNamespace: logstash
+  targetNamespace: elk
   releaseName: logstash
   interval: 1m0s
   chart:
@@ -14,3 +14,12 @@ spec:
       sourceRef:
         kind: GitRepository
         name: server
+  values:
+    logstashPipeline:
+      logstash.conf: |
+        input {
+          beats {
+            port => 5044
+          }
+        }
+        output { elasticsearch { hosts => http://elasticsearch-master:9200 } }
