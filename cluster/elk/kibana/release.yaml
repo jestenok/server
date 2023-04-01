@@ -21,8 +21,6 @@ spec:
       enabled: false
       className: "nginx"
       pathtype: ImplementationSpecific
-      annotations:
-        nginx.ingress.kubernetes.io/ssl-certificate: wildcard-tls
       hosts:
         - host: kibana.jestenok.com
           paths:
