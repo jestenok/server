@@ -23,6 +23,13 @@ spec:
               type: container
               paths:
               - /var/log/containers/*${data.kubernetes.container.id}.log
+        processors:
+        - jira-telegram-bot:
+            in_cluster: true
+            host: ${NODE_NAME}
+            matchers:
+            - logs_path:
+                logs_path: "/var/log/jira-telegram-bot/"
     setup:
       dashboards:
         enabled: true
