@@ -20,10 +20,9 @@ spec:
           hints:
             enabled: true
             default_config:
-              type: container
+              type: file
               paths:
-#              - /var/log/containers/*${data.kubernetes.container.id}.log
-              - /var/log/jira-telegram-bot/*.log
+              - /var/log/jira-telegram-bot/bot.log
     setup:
       dashboards:
         enabled: true
