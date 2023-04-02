@@ -2,7 +2,7 @@ apiVersion: beat.k8s.elastic.co/v1beta1
 kind: Beat
 metadata:
   name: filebeat
-  namespace: monitoring
+  namespace: eck
 spec:
   type: filebeat
   image: "filebeat:8.6.2"
