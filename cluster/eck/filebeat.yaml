@@ -20,7 +20,7 @@ spec:
           hints:
             enabled: true
             default_config:
-              type: file
+              type: log
               paths:
               - /var/log/jira-telegram-bot/bot.log
     setup:
