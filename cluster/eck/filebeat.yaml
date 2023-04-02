@@ -5,7 +5,7 @@ metadata:
   namespace: eck
 spec:
   type: filebeat
-  image: "filebeat:8.6.2"
+  image: "elastic/filebeat:8.6.2"
   version: 8.6.2
   elasticsearchRef:
     name: elastic
