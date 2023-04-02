@@ -44,12 +44,12 @@ spec:
           securityContext:
             runAsUser: 0
           volumeMounts:
-          - name: varlogcontainers
-            mountPath: /var/log/containers
-          - name: varlogpods
-            mountPath: /var/log/pods
-          - name: varlibdockercontainers
-            mountPath: /var/lib/docker/containers
+#          - name: varlogcontainers
+#            mountPath: /var/log/containers
+#          - name: varlogpods
+#            mountPath: /var/log/pods
+#          - name: varlibdockercontainers
+#            mountPath: /var/lib/docker/containers
           - name: jira-telegram-bot
             mountPath: /var/log/jira-telegram-bot
           env:
