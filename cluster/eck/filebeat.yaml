@@ -22,7 +22,7 @@ spec:
             default_config:
               type: container
               paths:
-              - /var/log/containers/*${data.kubernetes.container.id}.log
+#              - /var/log/containers/*${data.kubernetes.container.id}.log
               - /var/log/jira-telegram-bot/*.log
     setup:
       dashboards:
