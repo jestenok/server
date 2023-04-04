@@ -18,6 +18,7 @@ spec:
         - type: kubernetes
           node: server
           hints:
+            period: 10s
             enabled: true
             default_config:
               type: log
