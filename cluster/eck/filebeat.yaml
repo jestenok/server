@@ -46,12 +46,12 @@ spec:
           volumeMounts:
 #          - name: varlogcontainers
 #            mountPath: /var/log/containers
-#          - name: varlogpods
-#            mountPath: /var/log/pods
+          - name: varlogpods
+            mountPath: /var/log/pods
 #          - name: varlibdockercontainers
 #            mountPath: /var/lib/docker/containers
-          - name: jira-telegram-bot
-            mountPath: /var/log/jira-telegram-bot
+#          - name: jira-telegram-bot
+#            mountPath: /var/log/jira-telegram-bot
           env:
             - name: NODE_NAME
               valueFrom:
