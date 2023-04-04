@@ -21,17 +21,8 @@ spec:
             enabled: true
             default_config:
               type: log
-#              processors:
-#                - decode_json_fields:
-#                    when.regexp.message: '^{'
-#                    fields: [ "message" ]
-#                    process_array: false
-#                    max_depth: 1
-#                    target: "parsed"
-#                    overwrite_keys: false
-#                    add_error_key: true
               paths:
-              - /var/log/pods/*/*/*.log
+                - /var/log/pods/*${data.kubernetes.pod.uid}*.log
     setup:
       dashboards:
         enabled: true
