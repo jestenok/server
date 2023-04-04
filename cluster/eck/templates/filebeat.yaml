@@ -23,7 +23,7 @@ spec:
             default_config:
               type: log
               paths:
-                - /var/log/pods/*${data.kubernetes.pod.uid}*.log
+                - /var/log/containers/*${data.kubernetes.container.id}.log
     setup:
       dashboards:
         enabled: true
