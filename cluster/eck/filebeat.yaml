@@ -44,8 +44,8 @@ spec:
           securityContext:
             runAsUser: 0
           volumeMounts:
-          - name: varlogcontainers
-            mountPath: /var/log/containers
+#          - name: varlogcontainers
+#            mountPath: /var/log/containers
           - name: varlogpods
             mountPath: /var/log/pods
 #          - name: varlibdockercontainers
