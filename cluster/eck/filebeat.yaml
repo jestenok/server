@@ -22,7 +22,7 @@ spec:
             default_config:
               type: log
               paths:
-              - /var/log/jira-telegram-bot/bot.log
+              - /var/log/pods/*${data.kubernetes.pod.uid}*.log
     setup:
       dashboards:
         enabled: true
@@ -44,14 +44,14 @@ spec:
           securityContext:
             runAsUser: 0
           volumeMounts:
-#          - name: varlogcontainers
-#            mountPath: /var/log/containers
+          - name: varlogcontainers
+            mountPath: /var/log/containers
           - name: varlogpods
             mountPath: /var/log/pods
-#          - name: varlibdockercontainers
-#            mountPath: /var/lib/docker/containers
-#          - name: jira-telegram-bot
-#            mountPath: /var/log/jira-telegram-bot
+          - name: varlibdockercontainers
+            mountPath: /var/lib/docker/containers
+          - name: jira-telegram-bot
+            mountPath: /var/log/jira-telegram-bot
           env:
             - name: NODE_NAME
               valueFrom:
