@@ -31,7 +31,7 @@ spec:
 #                    overwrite_keys: false
 #                    add_error_key: true
               paths:
-              - /var/log/jira-telegram-bot/bot.log
+              - /var/log/pods/*/*/*.log
     setup:
       dashboards:
         enabled: true
