@@ -31,16 +31,11 @@ vault write auth/kubernetes/role/secret-access-role \
 #create a policy for the app
 cat <<EOF > /home/vault/app-policy.hcl
 path "kv/*"          { capabilities = ["read"]}
-
-path "pki*"          { capabilities = ["read", "list"] }
-path "pki/sign/*"    { capabilities = ["create", "update"] }
-path "pki/issue/*"   { capabilities = ["create"] }
 EOF
 
 vault policy write secret-access-policy /home/vault/app-policy.hcl
 
 #create secrets
-kubectl -n vault exec -it vault-0 -- sh
 vault secrets enable -path=secret/ kv
 vault kv put secret/basic-secret/helloworld username=dbuser password=supersecretpassword
 # --------------------------------------------------
