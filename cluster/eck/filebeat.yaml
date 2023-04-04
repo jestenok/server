@@ -21,15 +21,15 @@ spec:
             enabled: true
             default_config:
               type: container
-              processors:
-                - decode_json_fields:
-                    when.regexp.message: '^{'
-                    fields: [ "message" ]
-                    process_array: false
-                    max_depth: 1
-                    target: "parsed"
-                    overwrite_keys: false
-                    add_error_key: true
+#              processors:
+#                - decode_json_fields:
+#                    when.regexp.message: '^{'
+#                    fields: [ "message" ]
+#                    process_array: false
+#                    max_depth: 1
+#                    target: "parsed"
+#                    overwrite_keys: false
+#                    add_error_key: true
               paths:
               - /var/log/jira-telegram-bot/bot.log
     setup:
