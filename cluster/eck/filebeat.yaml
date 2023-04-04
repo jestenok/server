@@ -15,19 +15,12 @@ spec:
     filebeat:
       autodiscover:
         providers:
-          - type: kubernetes
-            node: ${NODE_NAME}
-            include_pod_uid: true
-            in_cluster: true
-            hints.enabled: true
-            hints.default_config:
+        - type: kubernetes
+          node: server
+          hints:
+            enabled: true
+            default_config:
               type: container
-              scan_frequency: 1s
-              exclude_files: [ '.gz$' ]
-              multiline.type: pattern
-              multiline.pattern: '^[[:space:]]|^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
-              multiline.negate: false
-              multiline.match: after
               processors:
                 - decode_json_fields:
                     when.regexp.message: '^{'
@@ -37,14 +30,8 @@ spec:
                     target: "parsed"
                     overwrite_keys: false
                     add_error_key: true
-                - add_labels:
-                    labels:
-                      k8s_cluster: "${cluster_name}"
-                - drop_fields:
-                    fields: [ "container.id", "agent.id", "agent.ephemeral_id", "container.runtime", "ecs.version", "input.type", "kubernetes.labels.pod-template-hash", "kubernetes.pod.uid", "kubernetes.labels.app_kubernetes_io/config-sha256" ]
-                    ignore_missing: true
               paths:
-                - /var/log/pods/*/*/*.log
+              - /var/log/jira-telegram-bot/bot.log
     setup:
       dashboards:
         enabled: true
@@ -72,8 +59,8 @@ spec:
             mountPath: /var/log/pods
           - name: varlibdockercontainers
             mountPath: /var/lib/docker/containers
-#          - name: jira-telegram-bot
-#            mountPath: /var/log/jira-telegram-bot
+          - name: jira-telegram-bot
+            mountPath: /var/log/jira-telegram-bot
           env:
             - name: NODE_NAME
               valueFrom:
@@ -89,6 +76,6 @@ spec:
         - name: varlibdockercontainers
           hostPath:
             path: /var/lib/docker/containers
-#        - name: jira-telegram-bot
-#          hostPath:
-#            path: /code/storage/jira-telegram-bot/log
+        - name: jira-telegram-bot
+          hostPath:
+            path: /code/storage/jira-telegram-bot/log
