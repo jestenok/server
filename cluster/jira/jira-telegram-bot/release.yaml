@@ -16,7 +16,7 @@ spec:
         name: jira-telegram-bot
   values:
     web:
-      image: "registry.hub.docker.com/jestenok/jira-telegram-bot:1.0.35" # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+      image: "registry.hub.docker.com/jestenok/jira-telegram-bot:1.0.36" # {"$imagepolicy": "flux-system:jira-telegram-bot"}
       tls:
         enabled: true
     jira:
