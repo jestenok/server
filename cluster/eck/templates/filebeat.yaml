@@ -21,7 +21,7 @@ spec:
             period: 10s
             enabled: true
             default_config:
-              type: log
+              type: filestream
               paths:
                 - /var/log/containers/*${data.kubernetes.container.id}.log
     setup:
