@@ -1,0 +1,77 @@
+{
+  "@timestamp": [
+    "2023-04-05T12:23:35.836Z"
+  ],
+  "agent.ephemeral_id": [
+    "8f89724b-f704-4b90-a73e-036d813ffee8"
+  ],
+  "agent.hostname": [
+    "server"
+  ],
+  "agent.id": [
+    "7239b031-e66c-4783-8a54-12d65e225a8f"
+  ],
+  "agent.name": [
+    "server"
+  ],
+  "agent.type": [
+    "filebeat"
+  ],
+  "agent.version": [
+    "8.6.2"
+  ],
+  "dissect.date": [
+    "2023-04-05"
+  ],
+  "dissect.json": [
+    "{'update_id': 625704739, 'message': {'message_id': 471, 'from': {'id': 1021912706, 'is_bot': False, 'first_name': 'Kamil', 'username': 'Jestenok', 'language_code': 'ru', 'is_premium': True}, 'chat': {'id': 1021912706, 'first_name': 'Kamil', 'username': 'Jestenok', 'type': 'private'}, 'date': 1680697415, 'text': 'ds;lfbms;db'}}"
+  ],
+  "dissect.log_level": [
+    "INFO "
+  ],
+  "dissect.method": [
+    "POST"
+  ],
+  "dissect.thread": [
+    "MainThread  "
+  ],
+  "dissect.time": [
+    "12:23:35,836"
+  ],
+  "dissect.url": [
+    "http://jestenok.com/5739496514:AAGAkI5JSn3SNM3pIXksRwNChlXGtSlLBvw/"
+  ],
+  "ecs.version": [
+    "8.0.0"
+  ],
+  "error.data": [
+    "{'update_id': 625704739, 'message': {'message_id': 471, 'from': {'id': 1021912706, 'is_bot': False, 'first_name': 'Kamil', 'username': 'Jestenok', 'language_code': 'ru', 'is_premium': True}, 'chat': {'id': 1021912706, 'first_name': 'Kamil', 'username': 'Jestenok', 'type': 'private'}, 'date': 1680697415, 'text': 'ds;lfbms;db'}}"
+  ],
+  "error.field": [
+    "dissect.json"
+  ],
+  "error.message": [
+    "parsing input as JSON: invalid character '\\'' looking for beginning of object key string"
+  ],
+  "host.name": [
+    "server"
+  ],
+  "input.type": [
+    "container"
+  ],
+  "log.file.path": [
+    "/var/log/containers/jira-telegram-bot-7bf46c6d8c-zzv6j_jira-telegram-bot_jira-telegram-bot-2bfaaf136da60414f4e4b76e55a43e0a2567b49babe5e783d2a2c76cdb406fab.log"
+  ],
+  "log.offset": [
+    7111
+  ],
+  "message": [
+    "2023-04-05 12:23:35,836 [MainThread  ] [INFO ]  method: POST, url: http://jestenok.com/5739496514:AAGAkI5JSn3SNM3pIXksRwNChlXGtSlLBvw/, json: {'update_id': 625704739, 'message': {'message_id': 471, 'from': {'id': 1021912706, 'is_bot': False, 'first_name': 'Kamil', 'username': 'Jestenok', 'language_code': 'ru', 'is_premium': True}, 'chat': {'id': 1021912706, 'first_name': 'Kamil', 'username': 'Jestenok', 'type': 'private'}, 'date': 1680697415, 'text': 'ds;lfbms;db'}}"
+  ],
+  "stream": [
+    "stdout"
+  ],
+  "_id": "4mhfUYcB2lVz22V5bzTt",
+  "_index": ".ds-filebeat-8.6.2-2023.04.04-000001",
+  "_score": null
+}
