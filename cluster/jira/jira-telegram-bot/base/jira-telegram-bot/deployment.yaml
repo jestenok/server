@@ -22,7 +22,7 @@ spec:
             claimName: jira-telegram-bot
       containers:
         - name: jira-telegram-bot
-          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.3 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.4 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
