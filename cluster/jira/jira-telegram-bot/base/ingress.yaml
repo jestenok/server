@@ -9,7 +9,7 @@ spec:
   - host: localhost
     http:
       paths:
-        - path: /jira-telegram-bot//
+        - path: /jira-telegram-bot/
           pathType: Prefix
           backend:
             service:
