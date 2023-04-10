@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: jira-telegram-bot
+  name: jira-telegram-bot
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: example.com
+    http:
+      paths:
+        - path: /token/
+          pathType: Prefix
+          backend:
+            service:
+              name: jira-telegram-bot
+              port:
+                number: 8080

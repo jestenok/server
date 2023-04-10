@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: postgres
+  name: postgres
+  namespace: jira-telegram-bot
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: postgres
+  template:
+    metadata:
+      labels:
+        k8s-app: postgres
+    spec:
+      volumes:
+        - name: jira-telegram-bot
+          persistentVolumeClaim:
+            claimName: jira-telegram-bot
+      containers:
+        - name: postgres
+          image: postgres:latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: jira-telegram-bot
+              subPath: pg
+          ports:
+            - containerPort: 5432
+              name: http
+              protocol: TCP
+          env:
+            - name: POSTGRES_DB
+              value: jira-telegram-bot
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jira-telegram-bot
+                  key: DB_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jira-telegram-bot
+                  key: DB_PASSWORD

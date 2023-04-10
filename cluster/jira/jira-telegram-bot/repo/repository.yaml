@@ -10,8 +10,3 @@ spec:
   url: ssh://git@github.com/jestenok/jira-telegram-bot
   ref:
     branch: master
-  ignore: |
-    # exclude all
-    /*
-    # include charts directory
-    !/charts/

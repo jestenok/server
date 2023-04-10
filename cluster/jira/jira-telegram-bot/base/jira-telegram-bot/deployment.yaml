@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: jira-telegram-bot
+  name: jira-telegram-bot
+  namespace: jira-telegram-bot
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: jira-telegram-bot
+  template:
+    metadata:
+      labels:
+        k8s-app: jira-telegram-bot
+    spec:
+      volumes:
+        - name: jira-telegram-bot
+          persistentVolumeClaim:
+            claimName: jira-telegram-bot
+      containers:
+        - name: jira-telegram-bot
+          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.0.42 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/log/jira-telegram-bot
+              name: jira-telegram-bot
+              subPath: log
+          env:
+            - name: TG_HOST
+              value: "http://jira.jira:8080"
+            - name: TG_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jira-telegram-bot
+                  key: TG_TOKEN
+            - name: TG_WEBHOOK
+              value: "true"
+
+            - name: JIRA_HOST
+              value: "http://jira.jira:8080"
+            - name: JIRA_PUBLIC_HOST
+              value: "https://jira.jestenok.com:8443"
+
+            - name: DB_NAME
+              value: jira-telegram-bot
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: jira-telegram-bot
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jira-telegram-bot
+                  key: DB_PASSWORD
