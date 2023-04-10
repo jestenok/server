@@ -1,2 +1,3 @@
 resources:
   - ../base/jira-telegram-bot/deployment.yaml
+  - ../base/ingress.yaml
