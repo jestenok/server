@@ -40,7 +40,7 @@ spec:
               subPath: log
           env:
             - name: TG_HOST
-              value: "http://jira.jira:8080"
+              value: "https://jestenok.com:8443"
             - name: TG_TOKEN
               valueFrom:
                 secretKeyRef:
