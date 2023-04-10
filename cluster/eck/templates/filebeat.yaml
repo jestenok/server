@@ -16,7 +16,7 @@ spec:
     - type: container
       scan_frequency: 10s
       paths:
-      - /var/log/containers/jira*.log
+      - /var/log/containers/jira-telegram*.log
       multiline.pattern: '^[[:space:]]'
       multiline.negate: false
       multiline.match: after
@@ -54,7 +54,10 @@ spec:
           resources:
             limits:
               memory: 1Gi
-              cpu: 1
+              cpu: 100m
+            requests:
+              memory: 1Gi
+              cpu: 100m
           securityContext:
             runAsUser: 0
           volumeMounts:
