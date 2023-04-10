@@ -5,8 +5,11 @@ metadata:
   name: jira-telegram-bot
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - jestenok.com
   rules:
-  - host: localhost
+  - host: jestenok.com
     http:
       paths:
         - path: /jira-telegram-bot/

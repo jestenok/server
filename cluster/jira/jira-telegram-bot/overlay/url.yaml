@@ -1,15 +1,21 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  namespace: jira-telegram-bot
-  name: jira-telegram-bot
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - jestenok.com
-  rules:
-  - host: jestenok.com
-    http:
-      paths:
-        - path: /jira-telegram-bot/
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  namespace: jira-telegram-bot
+#  name: jira-telegram-bot
+#spec:
+#  ingressClassName: nginx
+#  tls:
+#    - hosts:
+#        - jestenok.com
+#  rules:
+#  - host: jestenok.com
+#    http:
+#      paths:
+#        - path: /jira-telegram-bot/
+#          pathType: Prefix
+#          backend:
+#            service:
+#              name: jira-telegram-bot
+#              port:
+#                number: 8080

@@ -1,13 +1,13 @@
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  name: jira-telegram-bot
-spec:
-  selector:
-    matchLabels:
-      k8s-app: jira-telegram-bot
-  template:
-    spec:
-      containers:
-        - name: jira-telegram-bot
-          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.2 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+#kind: Deployment
+#apiVersion: apps/v1
+#metadata:
+#  name: jira-telegram-bot
+#spec:
+#  selector:
+#    matchLabels:
+#      k8s-app: jira-telegram-bot
+#  template:
+#    spec:
+#      containers:
+#        - name: jira-telegram-bot
+#          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.2 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
