@@ -10,4 +10,4 @@ spec:
     spec:
       containers:
         - name: jira-telegram-bot
-          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.1 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
+          image: registry.hub.docker.com/jestenok/jira-telegram-bot:1.1.2 # {"$imagepolicy": "flux-system:jira-telegram-bot"}
