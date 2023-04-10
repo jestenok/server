@@ -27,6 +27,13 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+          resources:
+            limits:
+              cpu: 50m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
           volumeMounts:
             - mountPath: /var/log/jira-telegram-bot
               name: jira-telegram-bot
