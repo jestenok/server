@@ -1,4 +1,2 @@
 resources:
   - ../base/jira-telegram-bot/deployment.yaml
-transformers:
-  -
